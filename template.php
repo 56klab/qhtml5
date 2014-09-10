@@ -7,81 +7,77 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 ?>
 <div id="wrapper">
 
-	<div id="top"<?php echo $fixedclass; ?>>
+	<div id="top" class="<?php echo $fixedclass; ?>">
 		<header>
 			<div id="header">				
-				<h1>
 					<?php if ($this->countModules('logo')): ?>
 					<div id="logo">
-						<jdoc:include type="modules" name="logo" />
+						<jdoc:include type="modules" name="logo" style="html5"/>
 					</div>
 					<?php endif; ?>
 					<?php if ($this->countModules('payoff')): ?>
 					<div id="payoff">
-						<jdoc:include type="modules" name="payoff" />
+						<jdoc:include type="modules" name="payoff" style="html5"/>
 					</div>
-					<?php endif; ?>
-				</h1>							
+					<?php endif; ?>							
 			</div>
 		</header>
 		<nav>
 			<div id="menu">
-				<jdoc:include type="modules" name="menu" />
+				<jdoc:include type="modules" name="menu" style="html5"/>
 			</div>
 		</nav>
 	</div><!-- end Top -->
 	
 	<?php if ($this->countModules('center-top')): ?>
 	<div id="center-top">
-		<jdoc:include type="modules" name="center-top" />
+		<jdoc:include type="modules" name="center-top" style="html5"/>
 	</div>
 	<?php endif; ?>	
 	
 	<div id="center">    
-        <div id="center-floater">
-            <div id="container<?php echo $containerwidth; ?>">
-				<jdoc:include type="message" />		
-				<?php if ( $templateparams->get('showcomponent') == 0  OR  $menu->getActive() != $menu->getDefault() ) { ?>
-				<div id="content">
-					<section>
-						<div id="sezione">
-							<jdoc:include type="component" />
-							<jdoc:include type="modules" name="sezione"  />
-						</div>
-					</section>
-				</div>
-				<?php }	?>
-			</div><!-- end container -->
-            <?php if ($this->countModules('left')){ ?>
-				<aside id="left">
-					<jdoc:include type="modules" name="left" />
-				</aside >
-			<?php } ?>
-        </div><!-- end center-floater -->
-        <?php if ($this->countModules('right')) { ?>
-			<aside id="right">
-				<jdoc:include type="modules" name="right" />
-			</aside >
+	
+		<?php if ($this->countModules('left')){ ?>
+			<aside id="left" class="span3">
+				<jdoc:include type="modules" name="left" style="html5"/>
+			</aside>
 		<?php } ?>
-    </div><!-- end center -->
+		
+		<div id="content" class="<?php echo $contentspan; ?>">
+			<jdoc:include type="message" />	
+			<?php if ( $templateparams->get('showcomponent') == 0  OR  $menu->getActive() != $menu->getDefault() ) { ?>
+				<section>
+					<jdoc:include type="component" />
+				</section>
+			<?php }	?>
+		</div><!-- end container -->
+		
+		<?php if ($this->countModules('right')) { ?>
+			<aside id="right" class="span3">
+				<jdoc:include type="modules" name="right" style="html5"/>
+			</aside>
+		<?php } ?>
+
+	</div><!-- end center -->
     
-    <?php if ($this->countModules('center-bottom')): ?>
+   <?php if ($this->countModules('center-bottom')): ?>
 	<div id="center-bottom">
-		<jdoc:include type="modules" name="center-bottom" />
+		<jdoc:include type="modules" name="center-bottom" style="html5"/>
 	</div>
 	<?php endif; ?>	
 	
-	<div id="bottom"<?php echo $bottomstyle; ?>>
+	<div id="bottom" class="<?php echo $bottomstyle; ?>">
 		<footer>
-				<div id="footer">				
-					<jdoc:include type="modules" name="footer" />
-				</div>
+			<div id="footer">				
+				<jdoc:include type="modules" name="footer" style="html5" />
+			</div>
 		</footer>
-	</div>
-	<?php if ($this->countModules('copyright')): ?>
-	<div id="copyright">				
-					<jdoc:include type="modules" name="copyright" />
-	</div>
-	<?php endif; ?>
+		<?php if ($this->countModules('copyright')): ?>
+			<div id="copyright">				
+				<jdoc:include type="modules" name="copyright" style="html5"/>
+			</div>
+		<?php endif; ?>
+	</div><!-- Fine Bottom -->
+	
 	
 </div><!-- Fine Wrapper -->

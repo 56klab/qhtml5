@@ -5,54 +5,74 @@
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
-// Getting params from template
-$params = JFactory::getApplication()->getTemplate(true)->params;
+//Inizializzo le variabili per Joomla
 
-$app 				= JFactory::getApplication();
-$doc 				= JFactory::getDocument();
-$user 				= JFactory::getUser();
-$this->language 	= $doc->language;
-$this->direction 	= $doc->direction;
-$itemid				= JRequest::getVar('Itemid');
-$menu				= $app->getMenu();
-$templateparams		= $app -> getTemplate(true) -> params;
-$active				= $menu -> getItem($itemid);
+$app             = JFactory::getApplication();
+$doc             = JFactory::getDocument();
+$user            = JFactory::getUser();
+$this->language  = $doc->language;
+$this->direction = $doc->direction;
+
+// Inizializzo i paramentri dalla configurazione del template
+$params = $app->getTemplate(true)->params;
+
+// Controllo le variabili attive (POST e GET) - Come su template Protostar
+$option   = $app->input->getCmd('option', '');
+$view     = $app->input->getCmd('view', '');
+$layout   = $app->input->getCmd('layout', '');
+$task     = $app->input->getCmd('task', '');
+$itemid   = $app->input->getCmd('Itemid', '');
+$sitename = $app->get('sitename');
+
+
+// Variabili di QHTML5
+$itemidMenu			= JRequest::getVar('Itemid');
+$menu				   = $app->getMenu();
+$active				= $menu -> getItem($itemidMenu);
 $pageclass			= '';
 $fixedclass			= '';
 $bottomstyle		= '';
-$containerwidth 	= '';
+$contentspan    	= '';
 
+// Caricamento framework boostrap
 JHtml::_('bootstrap.framework');
-$doc->addStyleSheet($this->baseurl . '/media/jui/css/bootstrap.min.css');
 
-
-if ($params -> get('pageclass_sfx')) {
-	if ($templateparams -> get('classepagina') == 0) {
-		$pageclass = ' class="' . $params -> get('pageclass_sfx') . '" ';
-	}
-	else if ($templateparams -> get('classepagina') == 1) {
-		if (!$menu -> getActive() === $menu -> getDefault()) {
-			$pageclass = ' class="' . $params -> get('pageclass_sfx') . '" ';
-		}
-	}
-	else if ($templateparams -> get('classepagina') == 2) {
-		if ($menu -> getActive() === $menu -> getDefault()) {
-			$pageclass = ' class="' . $params -> get('pageclass_sfx') . '" ';
-	}
-	}
-	else if ($templateparams -> get('classepagina') == 3) {
-		$pageclass = '';
-	}
+//Caricamento JS funzioni speciali
+if ($this->params-> get('radiobtn') == 1) {
+	$doc->addScript('templates/' . $this->template . '/js/radiobtn.js');
 }
+
+//Caricamento Fogli di Style, attenzione all'ordine!
+	if ($this->params-> get('bootstrapcss') == 1) {
+		JHtml::_('bootstrap.loadCss', false, $this->direction);
+	}
+
+	// Load specific language related CSS
+	$doc->addStyleSheet('../media/jui/css/chosen.css');
+
+	// Caricamento fogli di stile di QHTML5
+	$doc->addStyleSheet('templates/system/css/general.css');
+	$doc->addStyleSheet('templates/system/css/system.css');
+	$doc->addStyleSheet('templates/' . $this->template . '/css/template.css');
+	$doc->addStyleSheet('templates/' . $this->template . '/css/magento.css');
+	$doc->addStyleSheet('templates/' . $this->template . '/css/responsive.css');
+
+
+
 
 if ($templateparams -> get('topfixed') == 0) {
-	$fixedclass = ' class="fixed"';
-} else if ($templateparams -> get('topfixed') == 1) {
 	$fixedclass = '';
-} else if ($templateparams -> get('topfixed') == 2) {
-	$fixedclass = ' class="absolute"';
+} else if ($templateparams -> get('topfixed') == 1) {
+	$fixedclass = '.navbar-fixed-top';
 }
 
+if ($templateparams -> get('bottomfixed') == 0) {
+	$fixedclass = '';
+} else if ($templateparams -> get('bottomfixed') == 1) {
+	$fixedclass = '.navbar-fixed-bottom';
+}
+
+/*
 if ($templateparams -> get('bottomsetting') == 0) {
 		$bottomstyle = '';
 }
@@ -62,33 +82,51 @@ if ($templateparams -> get('bottomsetting') == 1) {
 if ($templateparams -> get('bottomsetting') == 2) {
 		$bottomstyle = ' class="fixed"';
 }
+*/
 
-if ($this->countModules('left or right')) {
-	$containerwidth = "-medium";
-	if ($this->countModules('left and right')) {
-		$containerwidth = "-small";
+
+// calcolo span e moduli
+
+//span per left e right: dimensioni fisse per migliore user interface span3 | span6 | span3
+	if ($this->countModules('left or right')) { //se esiste una delle colonne laterali
+		$contentspan = "span9";
+		if ($this->countModules('left and right')) { //se esistono entrambe le colonne
+			$contentspan = "span6";
+		}
 	}
-}
 
 
 ?>
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" prefix="og: http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" prefix="og: http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" prefix="og: http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" prefix="og: http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
+	
+	<head>
+		<?php
+			include 'head.php'; //include il file contente l'HEAD della pagina html
+		?>
+	</head>
 
-<?php include 'head.php'; ?>
+	<body class="site <?php echo $pageclass . $option . ' view-' . $view . 
+									($layout ? ' layout-' . $layout : ' no-layout') . 
+									($task ? ' task-' . $task : ' no-task') .
+									($itemid ? ' itemid-' . $itemid : '');
+							?>">
 
-<body<?php echo $pageclass; ?>>
 
-<?php include 'template.php'; ?>
+		<?php
+			include 'template.php'; //include la parte modificabile dalla sviluppatore del template
+		?>
 
-<?php if($templateparams->get('jsbottom') == 0): ?>
-<!-- javascript alla fine del body -->
-<script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template;?>/js/plugins.js"></script>			
-<!-- fine javascript alla fine del body -->
-<?php endif; ?>
-<jdoc:include type="modules" name="debug" />
-</body>
+
+		<jdoc:include type="modules" name="debug" style="none" />
+	</body>
 </html>
+<?php
+	if(JDEBUG)
+	{
+		session_start();
+		echo "<h3> PHP List All Session Variables</h3>";
+		foreach ($_SESSION as $key=>$val)
+		echo $key." ".$val."<br/>";
+	}
+?>
