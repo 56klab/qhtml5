@@ -9,23 +9,18 @@
 	<copyright>Copyright (C) 2013 Quantility.it, Inc. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<version>2.0c build 29/08/14</version>
-	<description>Template base responsive HTML5 - versione per Joomla! 3.x</description>
+	<description>Template base responsive HTML5 - versione per Joomla! 2.5</description>
 	<files>
 		<folder>html</folder>
 		<folder>css</folder>
 		<folder>js</folder>
 		<folder>images</folder>
 		<filename>index.php</filename>
-		<filename>head.php</filename>
-		<filename>template.php</filename>
 		<filename>templateDetails.xml</filename>
 	</files>
 
 	<positions>
-		<position>top</position>
-		<position>bottom</position>
-		<position>left</position>
-		<position>right</position>
+		<position>destra</position>		
 	</positions>
 		
 	<languages folder="language">
