@@ -6,7 +6,6 @@
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
 //Inizializzo le variabili per Joomla
-
 $app             = JFactory::getApplication();
 $doc             = JFactory::getDocument();
 $user            = JFactory::getUser();
@@ -24,7 +23,6 @@ $task     = $app->input->getCmd('task', '');
 $itemid   = $app->input->getCmd('Itemid', '');
 $sitename = $app->get('sitename');
 
-
 // Variabili di QHTML5
 $itemidMenu			= JRequest::getVar('Itemid');
 $menu				   = $app->getMenu();
@@ -38,37 +36,34 @@ $contentspan    	= '';
 JHtml::_('bootstrap.framework');
 
 //Caricamento JS funzioni speciali
-if ($this->params-> get('radiobtn') == 1) {
+if ($this->params->get('radiobtn') == 1) {
 	$doc->addScript('templates/' . $this->template . '/js/radiobtn.js');
 }
 
 //Caricamento Fogli di Style, attenzione all'ordine!
-	if ($this->params-> get('bootstrapcss') == 1) {
-		JHtml::_('bootstrap.loadCss', false, $this->direction);
-	}
+if ($this->params->get('bootstrapcss') == '1') {
+	JHtml::_('bootstrap.loadCss', true, $this->direction);
+}
 
-	// Load specific language related CSS
-	$doc->addStyleSheet('../media/jui/css/chosen.css');
+// Load specific language related CSS
+$doc->addStyleSheet('../media/jui/css/chosen.css');
 
-	// Caricamento fogli di stile di QHTML5
-	$doc->addStyleSheet('templates/system/css/general.css');
-	$doc->addStyleSheet('templates/system/css/system.css');
-	$doc->addStyleSheet('templates/' . $this->template . '/css/template.css');
-	$doc->addStyleSheet('templates/' . $this->template . '/css/magento.css');
-	$doc->addStyleSheet('templates/' . $this->template . '/css/responsive.css');
+// Caricamento fogli di stile di QHTML5
+$doc->addStyleSheet('templates/system/css/general.css');
+$doc->addStyleSheet('templates/system/css/system.css');
+$doc->addStyleSheet('templates/' . $this->template . '/css/template.css');
+$doc->addStyleSheet('templates/' . $this->template . '/css/magento.css');
+$doc->addStyleSheet('templates/' . $this->template . '/css/responsive.css');
 
-
-
-
-if ($templateparams -> get('topfixed') == 0) {
+if ($this->params->get('topfixed') == 0) {
 	$fixedclass = '';
-} else if ($templateparams -> get('topfixed') == 1) {
+} else if ($this->params->get('topfixed') == 1) {
 	$fixedclass = '.navbar-fixed-top';
 }
 
-if ($templateparams -> get('bottomfixed') == 0) {
+if ($this->params->get('bottomfixed') == 0) {
 	$fixedclass = '';
-} else if ($templateparams -> get('bottomfixed') == 1) {
+} else if ($this->params->get('bottomfixed') == 1) {
 	$fixedclass = '.navbar-fixed-bottom';
 }
 
@@ -84,7 +79,6 @@ if ($templateparams -> get('bottomsetting') == 2) {
 }
 */
 
-
 // calcolo span e moduli
 
 //span per left e right: dimensioni fisse per migliore user interface span3 | span6 | span3
@@ -94,39 +88,31 @@ if ($templateparams -> get('bottomsetting') == 2) {
 			$contentspan = "span6";
 		}
 	}
-
-
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
-	
-	<head>
-		<?php
-			include 'head.php'; //include il file contente l'HEAD della pagina html
-		?>
-	</head>
+<head>
+	<?php include 'head.php'; //include il file contente l'HEAD della pagina html ?>
+</head>
 
-	<body class="site <?php echo $pageclass . $option . ' view-' . $view . 
-									($layout ? ' layout-' . $layout : ' no-layout') . 
-									($task ? ' task-' . $task : ' no-task') .
-									($itemid ? ' itemid-' . $itemid : '');
-							?>">
-
-
-		<?php
-			include 'template.php'; //include la parte modificabile dalla sviluppatore del template
-		?>
-
-
-		<jdoc:include type="modules" name="debug" style="none" />
-	</body>
+<body class="site <?php echo $pageclass . $option . ' view-' . $view . 
+								($layout ? ' layout-' . $layout : ' no-layout') . 
+								($task ? ' task-' . $task : ' no-task') .
+								($itemid ? ' itemid-' . $itemid : '');
+						?>">
+	<?php
+		include 'template.php'; //include la parte modificabile dalla sviluppatore del template
+	?>
+	<jdoc:include type="modules" name="debug" style="none" />
+</body>
 </html>
 <?php
 	if(JDEBUG)
 	{
-		session_start();
+		//session_start();
 		echo "<h3> PHP List All Session Variables</h3>";
-		foreach ($_SESSION as $key=>$val)
-		echo $key." ".$val."<br/>";
+		foreach ($_SESSION as $key=>$val) {
+			print_r($val);
+		}		
 	}
 ?>

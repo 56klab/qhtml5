@@ -31,12 +31,14 @@
 	</positions>
 		
 	<languages folder="language">
-		<language tag="it-IT">it-IT/it-IT.tpl_qhtml5.ini</language>
-		<language tag="it-IT">it-IT/it-IT.tpl_qhtml5.sys.ini</language>
+		<language tag="it-IT">templates/qhtml5/language/it-IT/it-IT.tpl_qhtml5.ini</language>
+		<language tag="it-IT">templates/qhtml5/language/it-IT/it-IT.tpl_qhtml5.sys.ini</language>
 	</languages>
 		
 	<config>
+		
 		<fields name="params">
+			
 			<fieldset name="css" label="CSS">
 				<field 
 					name="normalize"
@@ -50,6 +52,7 @@
 						value="1">Disabilitato</option>
 				 </field>   		
 			</fieldset>
+			
 			<fieldset name="jquery" label="Javascript">
 				 <!-- <field 
 					name="jquery"
@@ -128,7 +131,7 @@
 					type="list"
 					default="0"
 					label="Posizionamento div #top" 
-					description="Scegliere il posizionamento del div #top del template: Fixed intende "fisso" nella finestra">
+					description="Scegliere il posizionamento del div #top del template: Fixed intende fisso nella finestra">
 					<option
 						value="0">Normale</option>
 					<option
@@ -162,6 +165,7 @@
 				 </field>
 			
 			</fieldset>
+			
 			<fieldset name="ga" label="Google Analytics">
 				<field 
 					name="enablega"
@@ -182,6 +186,7 @@
 					filter="raw"
 				/>
 			</fieldset>
+			
 			<fieldset name="setbootstrap" label="Impostazioni Bootstrap">
 				<field 
 					name="bootstrapcss"
@@ -191,9 +196,9 @@
 					label="Carica gli stili di Bootstrap" 
 					description="Attiva il caricamento di bootstrap.min.css, bootstrap-responsive.min.css e bootstrap-extended.css. Inoltre valuta la direzione di scrittura della lingua e carica l'eventuale bootstrap-rtl.css">
 					<option
-						value="0">Off</option>
-					<option
 						value="1">On</option>
+					<option
+						value="0">Off</option>
 				 </field>
 				<field 
 					name="radiobtn"
@@ -223,10 +228,12 @@
 						value="3">Disattivato</option>
 				 </field>
 			</fieldset>
+			
 			<fieldset name="debug" label="Debug">
 				<field 
 					name="tpdebug"
 					type="radio"
+					class="btn-group btn-group-yesno"
 					default="0"
 					label="Attivare il debug visuale del template?" 
 					description="Scegliere se mostrare un particolare debug visuale per tutte le parti html del template">
@@ -238,7 +245,5 @@
 			</fieldset>
 		</fields>
 	</config>
-
-
-
+	
 </extension>

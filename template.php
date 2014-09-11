@@ -45,7 +45,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 		
 		<div id="content" class="<?php echo $contentspan; ?>">
 			<jdoc:include type="message" />	
-			<?php if ( $templateparams->get('showcomponent') == 0  OR  $menu->getActive() != $menu->getDefault() ) { ?>
+			<?php if ( $this->params->get('showcomponent') == 0  OR  $menu->getActive() != $menu->getDefault() ) { ?>
 				<section>
 					<jdoc:include type="component" />
 				</section>
