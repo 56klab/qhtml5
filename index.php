@@ -52,8 +52,12 @@ $doc->addStyleSheet('../media/jui/css/chosen.css');
 $doc->addStyleSheet('templates/system/css/general.css');
 $doc->addStyleSheet('templates/system/css/system.css');
 $doc->addStyleSheet('templates/' . $this->template . '/css/template.css');
-$doc->addStyleSheet('templates/' . $this->template . '/css/magento.css');
-$doc->addStyleSheet('templates/' . $this->template . '/css/responsive.css');
+if (file_exists('templates/' . $this->template . '/css/magento.css')) {
+	$doc->addStyleSheet('templates/' . $this->template . '/css/magento.css');
+}
+if (file_exists('templates/' . $this->template . '/css/responsive.css')) {
+	$doc->addStyleSheet('templates/' . $this->template . '/css/responsive.css');
+}
 
 if ($this->params->get('topfixed') == 0) {
 	$fixedclass = '';
