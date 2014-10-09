@@ -45,7 +45,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 		
 		<div id="content" class="<?php echo $contentspan; ?>">
 			<jdoc:include type="message" />	
-			<?php if ( $this->params->get('showcomponent') == 0  OR  $menu->getActive() != $menu->getDefault() ) { ?>
+			<?php if ( $this->params->get('showcomponent') == 0  OR  $menu->getActive() != $menu->getDefault($lang->getTag())) { ?>
 				<section>
 					<jdoc:include type="component" />
 				</section>
@@ -78,6 +78,5 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 			</div>
 		<?php endif; ?>
 	</div><!-- Fine Bottom -->
-	
 	
 </div><!-- Fine Wrapper -->

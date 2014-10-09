@@ -24,16 +24,12 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 
 <!-- fogli di stile -->
-<?php /*if($templateparams->get('normalize') == 0): ?>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" type="text/css" />
-<?php endif; ?>
-<?php if($templateparams->get('jqueryui') == 0): ?>
+<?php /*<?php if($templateparams->get('jqueryui') == 0): ?>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" type="text/css" />
 <?php endif; ?>
 <?php if($templateparams->get('jquerymobile') == 0): ?>
 <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" type="text/css" /
 <?php endif; */?>
-
 
 <?php if($this->params->get('tpdebug') == 1): ?>
 	<style>
@@ -41,11 +37,9 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 		*:hover {border: 1px solid #4218f8;}
 	</style>
 <?php endif; ?>	
-
 <!--[if lt IE 9]>
 	<script src="<?php echo $this->baseurl; ?>/media/jui/js/html5.js"></script>
 <![endif]-->
-
 <?php if($this->params->get('enablega') == 1) {
 	echo $this->params->get('scriptga');
 	} ?>

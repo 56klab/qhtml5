@@ -9,6 +9,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 $app             = JFactory::getApplication();
 $doc             = JFactory::getDocument();
 $user            = JFactory::getUser();
+$lang            = JFactory::getLanguage();
 $this->language  = $doc->language;
 $this->direction = $doc->direction;
 
@@ -25,13 +26,15 @@ $sitename = $app->get('sitename');
 
 // Variabili di QHTML5
 $itemidMenu			= JRequest::getVar('Itemid');
-$menu				   = $app->getMenu();
+$menu				= $app->getMenu();
 $active				= $menu -> getItem($itemidMenu);
 $pageclass			= '';
 $fixedclass			= '';
 $bottomstyle		= '';
 $contentspan    	= '';
-
+if (is_object($menu)) {
+    $pageclass = $app->getMenu()->getActive()->params->get('pageclass_sfx');
+}
 // Caricamento framework boostrap
 JHtml::_('bootstrap.framework');
 
@@ -71,20 +74,6 @@ if ($this->params->get('bottomfixed') == 0) {
 	$fixedclass = '.navbar-fixed-bottom';
 }
 
-/*
-if ($templateparams -> get('bottomsetting') == 0) {
-		$bottomstyle = '';
-}
-if ($templateparams -> get('bottomsetting') == 1) {
-		$bottomstyle = ' class="clearfix"';
-}
-if ($templateparams -> get('bottomsetting') == 2) {
-		$bottomstyle = ' class="fixed"';
-}
-*/
-
-// calcolo span e moduli
-
 //span per left e right: dimensioni fisse per migliore user interface span3 | span6 | span3
 	if ($this->countModules('left or right')) { //se esiste una delle colonne laterali
 		$contentspan = "span9";
@@ -98,8 +87,7 @@ if ($templateparams -> get('bottomsetting') == 2) {
 <head>
 	<?php include 'head.php'; //include il file contente l'HEAD della pagina html ?>
 </head>
-
-<body class="site <?php echo $pageclass . $option . ' view-' . $view . 
+<body class="site <?php echo $pageclass .' '. $option . ' view-' . $view . 
 								($layout ? ' layout-' . $layout : ' no-layout') . 
 								($task ? ' task-' . $task : ' no-task') .
 								($itemid ? ' itemid-' . $itemid : '');
