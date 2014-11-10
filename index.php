@@ -27,30 +27,31 @@ $sitename = $app->get('sitename');
 // Variabili di QHTML5
 $itemidMenu			= JRequest::getVar('Itemid');
 $menu				= $app->getMenu();
-$active				= $menu -> getItem($itemidMenu);
+$active				= $menu->getItem($itemidMenu);
 $pageclass			= '';
-$fixedclass			= '';
-$bottomstyle		= '';
-$contentspan    	= '';
+$contentwidth    	= '';
 if (is_object($menu)) {
     $pageclass = $app->getMenu()->getActive()->params->get('pageclass_sfx');
 }
 // Caricamento framework boostrap
 JHtml::_('bootstrap.framework');
-
+// Caricamento jquery UI core o sortable
+if($this->params->get('jqueryui') == 1):
+	JHtml::_('jquery.ui');
+	endif;
+if($this->params->get('jqueryui') == 2):
+	JHtml::_('jquery.ui', array('core', 'sortable'));
+	endif;
 //Caricamento JS funzioni speciali
 if ($this->params->get('radiobtn') == 1) {
 	$doc->addScript('templates/' . $this->template . '/js/radiobtn.js');
 }
-
 //Caricamento Fogli di Style, attenzione all'ordine!
 if ($this->params->get('bootstrapcss') == '1') {
 	JHtml::_('bootstrap.loadCss', true, $this->direction);
 }
-
 // Load specific language related CSS
 $doc->addStyleSheet('../media/jui/css/chosen.css');
-
 // Caricamento fogli di stile di QHTML5
 $doc->addStyleSheet('templates/system/css/general.css');
 $doc->addStyleSheet('templates/system/css/system.css');
@@ -61,50 +62,42 @@ if (file_exists('templates/' . $this->template . '/css/magento.css')) {
 if (file_exists('templates/' . $this->template . '/css/responsive.css')) {
 	$doc->addStyleSheet('templates/' . $this->template . '/css/responsive.css');
 }
-
-if ($this->params->get('topfixed') == 0) {
-	$fixedclass = '';
-} else if ($this->params->get('topfixed') == 1) {
-	$fixedclass = '.navbar-fixed-top';
-}
-
-if ($this->params->get('bottomfixed') == 0) {
-	$fixedclass = '';
-} else if ($this->params->get('bottomfixed') == 1) {
-	$fixedclass = '.navbar-fixed-bottom';
-}
-
 //span per left e right: dimensioni fisse per migliore user interface span3 | span6 | span3
-	if ($this->countModules('left or right')) { //se esiste una delle colonne laterali
-		$contentspan = "span9";
-		if ($this->countModules('left and right')) { //se esistono entrambe le colonne
-			$contentspan = "span6";
-		}
+if ($this -> countModules('left')) {
+	$leftspan = 'span3';
+}
+if ($this -> countModules('right')) {
+	$rightspan = 'span3';
+}
+if ($this -> countModules('left or right')) {
+	$contentwidth = "span9";
+	if ($this -> countModules('left and right')) {
+		$contentwidth = "span6";
+	} 	
+} else {
+		$contentwidth = "span12";
 	}
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
-	<?php include 'head.php'; //include il file contente l'HEAD della pagina html ?>
+<?php include 'head.php'; //include il file contente l'HEAD della pagina html ?>
 </head>
-<body class="site <?php echo $pageclass .' '. $option . ' view-' . $view . 
-								($layout ? ' layout-' . $layout : ' no-layout') . 
-								($task ? ' task-' . $task : ' no-task') .
-								($itemid ? ' itemid-' . $itemid : '');
+<body class="site <?php echo ($pageclass ? $pageclass : '') . $option . ' view-' . $view . 
+							 ($layout ? ' layout-' . $layout : ' no-layout') . 
+							 ($task ? ' task-' . $task : ' no-task') .
+							 ($itemid ? ' itemid-' . $itemid : '');
 						?>">
-	<?php
-		include 'template.php'; //include la parte modificabile dalla sviluppatore del template
-	?>
-	<jdoc:include type="modules" name="debug" style="none" />
+<?php include 'template.php'; //include la parte modificabile dalla sviluppatore del template ?>
+<jdoc:include type="modules" name="debug" style="none" />
 </body>
-</html>
-<?php
-	if(JDEBUG)
-	{
+<?php if(JDEBUG) {
 		//session_start();
 		echo "<h3> PHP List All Session Variables</h3>";
 		foreach ($_SESSION as $key=>$val) {
+			echo '<pre>';	
 			print_r($val);
+			echo '</pre>';	
 		}		
-	}
-?>
+	} ?>
+</html>
