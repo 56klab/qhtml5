@@ -26,12 +26,12 @@ $sitename = $app->get('sitename');
 
 // Variabili di QHTML5
 $itemidMenu			= JRequest::getVar('Itemid');
-$menu				= $app->getMenu();
-$active				= $menu->getItem($itemidMenu);
+$menu				= $app->getMenu()->getActive();
+$active				= $app->getMenu()->getItem($itemidMenu);
 $pageclass			= '';
 $contentwidth    	= '';
 if (is_object($menu)) {
-    $pageclass = $app->getMenu()->getActive()->params->get('pageclass_sfx');
+    $pageclass = $menu->params->get('pageclass_sfx');
 }
 // Caricamento framework boostrap
 JHtml::_('bootstrap.framework');
