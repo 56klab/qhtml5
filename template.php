@@ -55,7 +55,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 						</div>
 					</section>	
 				<?php endif; ?>
-				<?php if ( $this->params->get('showcomponent') == 0  OR  $menu->getActive() != $menu->getDefault($lang->getTag())) { ?>
+				<?php if ( $this->params->get('showcomponent') == 0  OR  $menu != $app->getMenu()->getDefault($lang->getTag())) { ?>
 					<section>
 						<jdoc:include type="component" />
 					</section>
