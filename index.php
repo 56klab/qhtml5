@@ -83,7 +83,7 @@ if ($this -> countModules('left or right')) {
 <head>
 <?php include 'head.php'; //include il file contente l'HEAD della pagina html ?>
 </head>
-<body class="site <?php echo ($pageclass ? $pageclass : '') .''.$option . ' view-' . $view . 
+<body class="site <?php echo ($pageclass ? $pageclass : '') .' '.$option . ' view-' . $view . 
 							 ($layout ? ' layout-' . $layout : ' no-layout') . 
 							 ($task ? ' task-' . $task : ' no-task') .
 							 ($itemid ? ' itemid-' . $itemid : '');

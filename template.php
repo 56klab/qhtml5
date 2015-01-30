@@ -47,7 +47,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 				</aside>
 			<?php } ?>			
 			<div id="content" class="<?php echo $contentwidth; ?>">
-				<jdoc:include type="message">
+				<jdoc:include type="message"/>
 				<?php if ($this->countModules('center-top')): ?>
 					<section class="row-fluid">	
 						<div id="center-top">
