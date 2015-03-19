@@ -14,24 +14,19 @@ $icon2 = 'templates/' . $this->template . '/images/icons/touch-icon-ipad.png';
 $icon3 = 'templates/' . $this->template . '/images/icons/touch-icon-iphone-retina.png';
 $icon4 = 'templates/' . $this->template . '/images/icons/touch-icon-ipad-retina.png';
 ?>
-
 <?php if (file_exists($icon1)) { ?>
 <link rel="apple-touch-icon" href="<?php echo $icon1; ?> ">
 <?php } ?>
-
 <?php if (file_exists($icon2)) { ?>
 <link rel="apple-touch-icon" sizes="76x76" href="<?php echo $icon2; ?> ">
 <?php } ?>
-
 <?php if (file_exists($icon3)) { ?>
 <link rel="apple-touch-icon" sizes="120x120" href="<?php echo $icon3; ?> ">
 <?php } ?>
-
 <?php if (file_exists($icon4)) { ?>
 <link rel="apple-touch-icon" sizes="152x152" href="<?php echo $icon4; ?> ">
 <?php } ?>
 <!--fine apple touch icon-->
-
 <jdoc:include type="head" />
 <!-- jQuery obbligatorio prima degli altri script -->
 <?php /*if($templateparams->get('jquerymigrate') == 0): ?>
