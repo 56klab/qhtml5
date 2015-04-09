@@ -254,6 +254,15 @@
 						value="1">On</option>
 				 </field>
 			</fieldset>
+			<fieldset name="honeypot" label="Project Honeypot">
+				<field 
+					name="honeypot_file"
+					type="textarea"
+					label="File (solo file con estensione.php)" 
+					description="Scrivi qua il nome del file posizionato in public_html per il progetto Honeypot"
+					filter="raw"
+				/>
+			</fieldset>
 		</fields>
 	</config>
 	
