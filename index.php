@@ -29,7 +29,8 @@ $itemidMenu			= JRequest::getVar('Itemid');
 $menu				= $app->getMenu()->getActive();
 $active				= $app->getMenu()->getItem($itemidMenu);
 $pageclass			= '';
-$contentwidth    	= '';
+$contentwidth    		= '';
+$honeypot_file			= $menu->params->get('honeypot_file');;
 if (is_object($menu)) {
     $pageclass = $menu->params->get('pageclass_sfx');
 }
@@ -89,6 +90,27 @@ if ($this -> countModules('left or right')) {
 							 ($itemid ? ' itemid-' . $itemid : '');
 						?>">
 <?php include 'template.php'; //include la parte modificabile dalla sviluppatore del template ?>
+<?php /* work in progress project honeypot
+$num = Rand (1,6); 
+switch ($num) {
+	case 1: echo '<a href="/'.$honeypot_file.'"><!-- finches-naked --></a>';
+	break;
+	case 2: echo '<a href="/'.$honeypot_file.'"><img src="finches-naked.gif" height="1" width="1" border="0"></a>';
+	break;
+	case 3: echo '<a href="/'.$honeypot_file.'" style="display: none;">finches-naked</a>';
+	break;
+	case 4: echo '<div style="display: none;"><a href="/'.$honeypot_file.'">finches-naked</a></div>';
+	break;
+	case 5: echo '<a href="/'.$honeypot_file.'"></a>';
+	break;
+	case 6: echo '<!-- <a href="/'.$honeypot_file.'">finches-naked</a> -->';
+	break;
+	case 7: echo '<div style="position: absolute; top: -250px; left: -250px;"><a href="/'.$honeypot_file.'">finches-naked</a></div>';
+	break;
+	case 8: echo '<a href="/'.$honeypot_file.'"><span style="display: none;">finches-naked</span></a>';
+	break;
+	case 9: echo '<a href="/'.$honeypot_file.'"><div style="height: 0px; width: 0px;"></div></a>';
+} */ ?>
 <jdoc:include type="modules" name="debug" style="none" />
 </body>
 <?php if(JDEBUG) {
