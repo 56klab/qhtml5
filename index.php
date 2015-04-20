@@ -1,7 +1,11 @@
 <?php
- /**
- * @copyright	Copyright (C) 2013 www.quantility.it
- **/
+/**
+ * @package      Qhtml5
+ *
+ * @author       Quantility
+ * @copyright    Copyright (C) 2015. All rights reserved.
+ * @license      http://www.gnu.org/licenses/gpl.html GNU/GPL
+ */
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
@@ -30,38 +34,51 @@ $menu				= $app->getMenu()->getActive();
 $active				= $app->getMenu()->getItem($itemidMenu);
 $pageclass			= '';
 $contentwidth    	= '';
+$honeypot_file		= $menu->params->get('honeypot_file');
+
+// Variabili per microdati LD+Json
+$md_sitetype = $this->params->get('md_sitetype');
+
 if (is_object($menu)) {
     $pageclass = $menu->params->get('pageclass_sfx');
 }
 // Caricamento framework boostrap
-JHtml::_('bootstrap.framework');
+	JHtml::_('bootstrap.framework');
+
 // Caricamento jquery UI core o sortable
 if($this->params->get('jqueryui') == 1):
 	JHtml::_('jquery.ui');
-	endif;
+endif;
 if($this->params->get('jqueryui') == 2):
 	JHtml::_('jquery.ui', array('core', 'sortable'));
-	endif;
+endif;
+
 //Caricamento JS funzioni speciali
 if ($this->params->get('radiobtn') == 1) {
 	$doc->addScript('templates/' . $this->template . '/js/radiobtn.js');
 }
+
 //Caricamento Fogli di Style, attenzione all'ordine!
 if ($this->params->get('bootstrapcss') == '1') {
 	JHtml::_('bootstrap.loadCss', true, $this->direction);
 }
+
 // Load specific language related CSS
 $doc->addStyleSheet('../media/jui/css/chosen.css');
+
 // Caricamento fogli di stile di QHTML5
 $doc->addStyleSheet('templates/system/css/general.css');
 $doc->addStyleSheet('templates/system/css/system.css');
 $doc->addStyleSheet('templates/' . $this->template . '/css/template.css');
+
 if (file_exists('templates/' . $this->template . '/css/magento.css')) {
 	$doc->addStyleSheet('templates/' . $this->template . '/css/magento.css');
 }
+
 if (file_exists('templates/' . $this->template . '/css/responsive.css')) {
 	$doc->addStyleSheet('templates/' . $this->template . '/css/responsive.css');
 }
+
 //span per left e right: dimensioni fisse per migliore user interface span3 | span6 | span3
 if ($this -> countModules('left')) {
 	$leftspan = 'span3';
@@ -76,28 +93,21 @@ if ($this -> countModules('left or right')) {
 	} 	
 } else {
 		$contentwidth = "span12";
-	}
+}
+
+// array di classi per il body
+$bodyclasses = ($pageclass ? $pageclass : '').' '.$option.' view-'.$view .($layout ? ' layout-'.$layout : ' no-layout').($task ? ' task-'.$task : ' no-task').($itemid ? ' itemid-'.$itemid : '');
+
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
 <?php include 'head.php'; //include il file contente l'HEAD della pagina html ?>
 </head>
-<body class="site <?php echo ($pageclass ? $pageclass : '') .' '.$option . ' view-' . $view . 
-							 ($layout ? ' layout-' . $layout : ' no-layout') . 
-							 ($task ? ' task-' . $task : ' no-task') .
-							 ($itemid ? ' itemid-' . $itemid : '');
-						?>">
+<body class="site <?php echo $bodyclasses; ?>">
 <?php include 'template.php'; //include la parte modificabile dalla sviluppatore del template ?>
+<?php include 'files/honeypot.php'; //include honeypot ?>
 <jdoc:include type="modules" name="debug" style="none" />
 </body>
-<?php if(JDEBUG) {
-		//session_start();
-		echo "<h3> PHP List All Session Variables</h3>";
-		foreach ($_SESSION as $key=>$val) {
-			echo '<pre>';	
-			print_r($val);
-			echo '</pre>';	
-		}		
-	} ?>
+<?php include 'files/debugger.php'; //include il file debugger ?>
 </html>
