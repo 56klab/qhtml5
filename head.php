@@ -1,7 +1,11 @@
 <?php
 /**
-* @copyright	Copyright (C) 2014 www.quantility.it
-**/
+ * @package      Qhtml5
+ *
+ * @author       Quantility
+ * @copyright    Copyright (C) 2015. All rights reserved.
+ * @license      http://www.gnu.org/licenses/gpl.html GNU/GPL
+ */
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
 ?>
@@ -29,21 +33,6 @@ $icon4 = 'templates/' . $this->template . '/images/icons/touch-icon-ipad-retina.
 <?php } ?>
 <!--fine apple touch icon-->
 <jdoc:include type="head" />
-<!-- jQuery obbligatorio prima degli altri script -->
-<?php /*if($templateparams->get('jquerymigrate') == 0): ?>
-<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<?php endif; ?>
-<?php if($templateparams->get('jquerymobile') == 0): ?>
-<script src="//code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-<?php endif; */?>
-<!-- fine jQuery obbligatorio prima degli altri script -->
-<!-- fogli di stile -->
-<?php /*<?php if($templateparams->get('jqueryui') == 0): ?>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" type="text/css" />
-<?php endif; ?>
-<?php if($templateparams->get('jquerymobile') == 0): ?>
-<link rel="stylesheet" href="//code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" type="text/css" /
-<?php endif; */?>
 <?php if($this->params->get('tpdebug') == 1): ?>
 <style>
 	* {border: 1px solid #f00;}
