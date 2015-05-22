@@ -3,12 +3,12 @@
 <extension version="3.1" type="template" client="site" method="upgrade">
 	<name>qhtml5</name>
 	<creationDate>29/08/14</creationDate>
-	<author>Massimo Marchetto Simone Bussoni</author>
+	<author>Quantility</author>
 	<authorEmail>assistenza@quantility.it</authorEmail>
 	<authorUrl>http://www.quantility.it</authorUrl>
-	<copyright>Copyright (C) 2013 Quantility.it, Inc. All rights reserved.</copyright>
+	<copyright>Copyright (C) 2015 Quantility.it, Inc. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>2.1.1 build 05/01/2015</version>
+	<version>2.1.2dev build 20/04/2015</version>
 	<description>TPL_QHTML5_XML_DESCRIPTION</description>
 	<files>
 		<folder>html</folder>
@@ -47,18 +47,7 @@
 		
 		<fields name="params">
 			
-			<fieldset name="css" label="CSS">
-				<!-- <field 
-					name="normalize"
-					type="radio"
-					default="0"
-					label="Normalize.css" 
-					description="Abilita Normalize per dare uno stile di base per uniformare parti del template su vari browser anche in assenza di CSS specifico">
-					<option
-						value="0">Abilitato</option>
-					<option
-						value="1">Disabilitato</option>
-				 </field> -->   		
+			<fieldset name="css" label="CSS">		
 			</fieldset>
 			
 			<fieldset name="jquery" label="Javascript">
@@ -136,44 +125,6 @@
 					<option
 						value="1">No</option>
 				 </field>
-				<!-- <field 
-					name="topfixed"
-					type="list"
-					default="0"
-					label="Posizionamento div #top" 
-					description="Scegliere il posizionamento del div #top del template: Fixed intende fisso nella finestra">
-					<option
-						value="0">Normale</option>
-					<option
-						value="1">Fixed</option>
-				 </field> -->
-				 <!-- <field 
-					name="bottomfixed"
-					type="list"
-					default="0"
-					label="Posizione div #bottom" 
-					description="Scegliere il posizionamento del div #bottom che contiente solitamente Footer e del suo contenitore: NORMALE per chiudere i contenuti, CLEARFIX per chiudere i contenuti riempiendo lo schermo fino in basso, FIXED per visualizzare sempre il footer in fondo allo schermo (ideale per footer con altezze ridotte)">
-					<option
-						value="0">Normale</option>
-					<option
-						value="1">Fixed</option>
-				 </field> -->
-				 <!-- <field 
-					name="classepagina"
-					type="list"
-					default="0"
-					label="Classe CSS nel Body" 
-					description="Scegliere se abilitare l'uso delle classi di pagina per dare uno stile unico alle pagine (la classe si imposta nelle voci di menu)">
-					<option
-						value="0">Su tutte le pagine</option>
-					<option
-						value="1">Su tutte le pagine esclusa la Home</option>
-					<option
-						value="2">Solo sulla Home</option>
-						<option
-						value="3">Disattivato</option>
-				 </field> -->
-			
 			</fieldset>
 			
 			<fieldset name="ga" label="Google Analytics">
@@ -223,21 +174,6 @@
 						value="0">Off</option>
 					
 				 </field>
-				 <!-- <field 
-					name="spandestra"
-					type="list"
-					default="0"
-					label="Larghezza colonna destra" 
-					description="Scegliere se abilitare l'uso delle classi di pagina per dare uno stile unico alle pagine (la classe si imposta nelle voci di menu)">
-					<option
-						value="0">Su tutte le pagine</option>
-					<option
-						value="1">Su tutte le pagine esclusa la Home</option>
-					<option
-						value="2">Solo sulla Home</option>
-						<option
-						value="3">Disattivato</option>
-				 </field> -->
 			</fieldset>
 			
 			<fieldset name="debug" label="Debug">
@@ -252,6 +188,31 @@
 						value="0">Off</option>
 					<option
 						value="1">On</option>
+				 </field>
+			</fieldset>
+			<fieldset name="honeypot" label="Project Honeypot">
+				<field 
+					name="honeypot_file"
+					type="textarea"
+					label="File (solo file con estensione.php)" 
+					description="Scrivi qua il nome del file posizionato in public_html per il progetto Honeypot"
+					filter="raw"
+				/>
+			</fieldset>
+			<fieldset name="microdata" label="Microdati Sito Web">
+				<field 
+					name="md_sitetype"
+					type="list"
+					default="0"
+					label="Tipo di Sito Web" 
+					description="Scegli il tipo di sito web tra i disponibili specificati dai microdati schema.org">
+					<option
+						value="WebSite">WebSite</option>
+					<option
+						value="LocalBusiness">LocalBusiness</option>
+					<option
+						value="Store">Store</option>
+						
 				 </field>
 			</fieldset>
 		</fields>
