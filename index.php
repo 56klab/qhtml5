@@ -103,6 +103,7 @@ $bodyclasses = ($pageclass ? $pageclass : '').' '.$option.' view-'.$view .($layo
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
 <?php include 'head.php'; //include il file contente l'HEAD della pagina html ?>
+<?php include 'files/microdata.php'; //include i microdati standard ?>
 </head>
 <body class="site <?php echo $bodyclasses; ?>">
 <?php include 'template.php'; //include la parte modificabile dalla sviluppatore del template ?>
