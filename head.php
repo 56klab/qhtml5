@@ -10,33 +10,21 @@
 defined( '_JEXEC' ) or die( 'Restricted access' );
 ?>
 <?php header('X-UA-Compatible: IE=edge,chrome=1');?>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!--apple touch icon-->
-<?php
-$favicon = 'templates/' . $this->template . '/images/icons/favicon.ico';
-$icon1 = 'templates/' . $this->template . '/images/icons/touch-icon-iphone.png';
-$icon2 = 'templates/' . $this->template . '/images/icons/touch-icon-ipad.png';
-$icon3 = 'templates/' . $this->template . '/images/icons/touch-icon-iphone-retina.png';
-$icon4 = 'templates/' . $this->template . '/images/icons/touch-icon-ipad-retina.png';
-?>
-<?php if (file_exists($favicon)) { ?>
-<link rel="shortcut icon" href="<?php echo $favicon; ?>" type="image/x-icon">
+<meta name="viewport" content="
+	width=device-width,
+	initial-scale=<?php echo $this->params->get('initial-scale')?>,
+	minimum-scale=<?php echo $this->params->get('minimum-scale')?>,
+	maximum-scale=<?php echo $this->params->get('maximum-scale')?>,
+	user-scalable=<?php echo $this->params->get('user-scalable')?> "/>
+
+<?php if($this->params->get('handheldfriendly') == 1) { ?>
+<meta name="HandheldFriendly" content="true" />
 <?php } ?>
-<?php if (file_exists($icon1)) { ?>
-<link rel="apple-touch-icon" href="<?php echo $icon1; ?>">
+<?php if($this->params->get('apple-app-fullscreen') == 1) { ?>
+<meta name="apple-mobile-web-app-capable" content="YES" />
 <?php } ?>
-<?php if (file_exists($icon2)) { ?>
-<link rel="apple-touch-icon" sizes="76x76" href="<?php echo $icon2; ?>">
-<?php } ?>
-<?php if (file_exists($icon3)) { ?>
-<link rel="apple-touch-icon" sizes="120x120" href="<?php echo $icon3; ?>">
-<?php } ?>
-<?php if (file_exists($icon4)) { ?>
-<link rel="apple-touch-icon" sizes="152x152" href="<?php echo $icon4; ?>">
-<link rel="icon" sizes="192x192" href="<?php echo $icon4; ?>">
-<?php } ?>
-<!--fine apple touch icon-->
 <jdoc:include type="head" />
+
 <?php if($this->params->get('tpdebug') == 1): ?>
 <style>
 	* {border: 1px solid #f00;}
