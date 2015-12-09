@@ -69,15 +69,15 @@ $doc->addStyleSheet('../media/jui/css/chosen.css');
 // Caricamento fogli di stile di QHTML5
 $doc->addStyleSheet('templates/system/css/general.css');
 $doc->addStyleSheet('templates/system/css/system.css');
-$doc->addStyleSheet('templates/' . $this->template . '/css/template.css');
+//$doc->addStyleSheet('templates/' . $this->template . '/css/template.css');
 
-if (file_exists('templates/' . $this->template . '/css/magento.css')) {
-	$doc->addStyleSheet('templates/' . $this->template . '/css/magento.css');
-}
+//if (file_exists('templates/' . $this->template . '/css/magento.css')) {
+//	$doc->addStyleSheet('templates/' . $this->template . '/css/magento.css');
+//}
 
-if (file_exists('templates/' . $this->template . '/css/responsive.css')) {
-	$doc->addStyleSheet('templates/' . $this->template . '/css/responsive.css');
-}
+//if (file_exists('templates/' . $this->template . '/css/responsive.css')) {
+//	$doc->addStyleSheet('templates/' . $this->template . '/css/responsive.css');
+//}
 
 //span per left e right: dimensioni fisse per migliore user interface span3 | span6 | span3
 if ($this -> countModules('left')) {
