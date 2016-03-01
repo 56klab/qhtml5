@@ -12,12 +12,16 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 <?php header('X-UA-Compatible: IE=edge,chrome=1');?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <!--apple touch icon-->
-<?php 
+<?php
+$favicon = 'templates/' . $this->template . '/images/icons/favicon.ico';
 $icon1 = 'templates/' . $this->template . '/images/icons/touch-icon-iphone.png';
 $icon2 = 'templates/' . $this->template . '/images/icons/touch-icon-ipad.png';
 $icon3 = 'templates/' . $this->template . '/images/icons/touch-icon-iphone-retina.png';
 $icon4 = 'templates/' . $this->template . '/images/icons/touch-icon-ipad-retina.png';
 ?>
+<?php if (file_exists($favicon)) { ?>
+<link rel="shortcut icon" href="<?php echo $favicon; ?>" type="image/x-icon">
+<?php } ?>
 <?php if (file_exists($icon1)) { ?>
 <link rel="apple-touch-icon" href="<?php echo $icon1; ?>">
 <?php } ?>
