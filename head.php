@@ -37,3 +37,15 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 	echo $this->params->get('scriptga');
 	}
 ?>
+<?php
+$qhtml5_template = 'templates/' . $this->template . '/css/template.css';
+$qhtml5_magento = 'templates/' . $this->template . '/css/magento.css';
+$qhtml5_responsive = 'templates/' . $this->template . '/css/responsive.css';
+?>
+<link rel="stylesheet" type="text/css" href="<?php echo $qhtml5_template; ?>">
+<?php if(file_exists($qhtml5_magento)){ ?>
+<link rel="stylesheet" type="text/css" href="<?php echo $qhtml5_magento; ?>">
+<?php } ?>
+<?php if(file_exists($qhtml5_responsive)){ ?>
+<link rel="stylesheet" type="text/css" href="<?php echo $qhtml5_responsive; ?>">
+<?php } ?>
