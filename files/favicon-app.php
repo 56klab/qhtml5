@@ -4,7 +4,7 @@
  * Inserire l'icona nel sito http://www.favicon-generator.org/, selezionare
  * "Generate icons for Web, Android, Microsoft, and iOS (iPhone and iPad) Apps"
  * scaricare il pacchetto e caricarlo in /templates/qhtm5/images/favicon
- * 
+ * Poi copia incollare qua i link generati da favicon-generator
  */
 
 /*
