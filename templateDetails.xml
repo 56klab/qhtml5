@@ -8,7 +8,7 @@
 	<authorUrl>http://www.quantility.it</authorUrl>
 	<copyright>Copyright (C) 2015 Quantility.it, Inc. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>2.2.1dev build 20/04/2016</version>
+	<version>2.2.2dev build 20/04/2016</version>
 	<description>TPL_QHTML5_XML_DESCRIPTION</description>
 	<files>
 		<folder>html</folder>
@@ -210,7 +210,7 @@
 						value="0">No</option>
 					
 				 </field>
-				 
+				 <field type="spacer" name="mobilespacer" label="Avanzate" />
 				 <field 
 					name="user-scalable"
 					type="radio" class="btn-group btn-group-yesno"
@@ -239,6 +239,7 @@
 					description="initial-scale"
 					filter="raw"
 					min="1" max="10" step="0.5"
+					showon="user-scalable:yes"
 				/>
 				<field 
 					name="minimum-scale"
@@ -248,6 +249,7 @@
 					description="minimum-scale"
 					filter="raw"
 					min="1" max="10" step="0.5"
+					showon="user-scalable:yes"
 				/>
 				<field 
 					name="maximum-scale"
@@ -257,6 +259,7 @@
 					description="maximum-scale"
 					filter="raw"
 					min="1" max="10" step="0.5"
+					showon="user-scalable:yes"
 				/>
 				 				 
 			</fieldset>
