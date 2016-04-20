@@ -220,6 +220,44 @@
 					<option value="yes">Si</option>
 					<option	value="no">No</option>					
 				 </field>
+				 
+				 <field 
+					name="user-scalable"
+					type="radio" class="btn-group btn-group-yesno"
+					default="no"
+					label="user-scalable" 
+					description="user-scalable">
+					<option value="yes">Si</option>
+					<option	value="no">No</option>					
+				 </field>
+				 
+				 <field 
+					name="initial-scale"
+					type="number"
+					default="1"
+					label="initial-scale" 
+					description="initial-scale"
+					filter="raw"
+					min="1" max="10" step="0.5"
+				/>
+				<field 
+					name="minimum-scale"
+					type="number"
+					default="1"
+					label="minimum-scale" 
+					description="minimum-scale"
+					filter="raw"
+					min="1" max="10" step="0.5"
+				/>
+				<field 
+					name="maximum-scale"
+					type="number"
+					default="1"
+					label="maximum-scale" 
+					description="maximum-scale"
+					filter="raw"
+					min="1" max="10" step="0.5"
+				/>
 				 				 
 			</fieldset>
 			
