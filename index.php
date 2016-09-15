@@ -101,7 +101,7 @@ $bodyclasses =	'site'
 <head>
 <?php	include 'files/favicon-app.php'; 						//include il file contente favicon e app icons
 	include 'head.php'; 								//include il file contente l'HEAD della pagina html
-	if ($this->params->get('enable_md') == 1) { include 'files/microdata.php';	//include i microdati standard
+	if ($this->params->get('enable_md') == 1) { include 'files/microdata.php'; }	//include i microdati standard
 ?>
 </head>
 <body class="<?php echo $bodyclasses; ?>">
