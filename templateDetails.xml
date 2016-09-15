@@ -280,11 +280,24 @@
 			</fieldset>
 			<fieldset name="honeypot" label="Project Honeypot">
 				<field 
+					name="enable_honeypot"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="0"
+					label="Attivare l'anti spam Honeypot?" 
+					description="Attiva un particolare sistema antispam che raccoglie i click di bot e li inserisce nel progetto Honeypot">
+					<option
+						value="0">No</option>
+					<option
+						value="1">Si</option>
+				 </field>
+				<field 
 					name="honeypot_file"
 					type="textarea"
 					label="File (solo file con estensione.php)" 
-					description="Scrivi qua il nome del file posizionato in public_html per il progetto Honeypot"
+					description="Scrivi il nome del file (posizionato in public_html) per il progetto Honeypot"
 					filter="raw"
+					showon="enable_honeypot:0"
 				/>
 			</fieldset>
 			<fieldset name="microdata" label="Microdati Sito Web">
