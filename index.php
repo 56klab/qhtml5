@@ -35,6 +35,9 @@ $active			= $app->getMenu()->getItem($itemidMenu);
 $pageclass		= '';
 $contentwidth    	= '';
 $honeypot_file		= $menu->params->get('honeypot_file');
+$qhtml5_template	= 'templates/' . $this->template . '/css/template.css';
+$qhtml5_magento		= 'templates/' . $this->template . '/css/magento.css';
+$qhtml5_responsive	= 'templates/' . $this->template . '/css/responsive.css';
 
 // Variabili per microdati LD+Json
 $md_sitetype = $this->params->get('md_sitetype');
