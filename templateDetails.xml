@@ -2,13 +2,13 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.1" type="template" client="site" method="upgrade">
 	<name>qhtml5</name>
-	<creationDate>01/03/2016</creationDate>
+	<creationDate>15/09/2016</creationDate>
 	<author>Quantility</author>
 	<authorEmail>assistenza@quantility.it</authorEmail>
 	<authorUrl>http://www.quantility.it</authorUrl>
-	<copyright>Copyright (C) 2015 Quantility.it, Inc. All rights reserved.</copyright>
+	<copyright>Copyright (C) 2016 Quantility.it, Inc. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>2.2.2dev build 20/04/2016</version>
+	<version>2.2.3dev build 15/09/2016</version>
 	<description>TPL_QHTML5_XML_DESCRIPTION</description>
 	<files>
 		<folder>html</folder>
@@ -59,30 +59,6 @@
 			</fieldset>
 			
 			<fieldset name="jquery" label="Javascript">
-				 <!-- <field 
-					name="jquery"
-					type="list"
-					default="0"
-					label="Inclusione jQuery" 
-					description="Scegliere se includere nel template jQuery">
-					<option
-						value="0">jQuery 2.1.0</option>
-					<option
-						value="1">jQuery 1.11.0</option>
-					<option
-						value="2">Non includere jQuery</option>
-				 </field> -->
-				 <!-- <field 
-					name="jquerymigrate"
-					type="list"
-					default="0"
-					label="Inclusione jQuery Migrate" 
-					description="Scegliere se includere nel template jQuery Migrate per consentire la retrocompatibilità con gli applicativi per jQuery 1.9 o precedenti">
-					<option
-						value="0">jQuery Migrate 1.2.1</option>
-					<option
-						value="1">Non includere jQuery Migrate</option>
-				 </field> -->
 				 <field 
 					name="jqueryui"
 					type="list"
@@ -135,24 +111,25 @@
 				 </field>
 			</fieldset>
 			
-			<fieldset name="ga" label="Google Analytics">
+			<fieldset name="ga" label="Google Tag Manager">
 				<field 
-					name="enablega"
+					name="enable_gtm"
 					type="list"
 					default="0"
-					label="Google Analytics" 
-					description="Scegliere se abilitare lo script GA su ogni pagina">
+					label="Google Tag Manager" 
+					description="Scegliere se abilitare l'inserimento del Google Tag Manager nel template">
 					<option
 						value="0">Abilitato</option>
 					<option
 						value="1">Disabilitato</option>
 				 </field>
 				<field 
-					name="scriptga"
+					name="script_gtm"
 					type="textarea"
-					label="Script GA" 
-					description="Incolla qua lo script di Google Analytics comprensivo di tag SCRIPT"
+					label="Script GTM"
+					description="Incolla qua per intero lo script contenitore di Google Tag Manager"
 					filter="raw"
+					showon="enable_gtm:1"
 				/>
 			</fieldset>
 			
@@ -297,15 +274,28 @@
 					label="File (solo file con estensione.php)" 
 					description="Scrivi il nome del file (posizionato in public_html) per il progetto Honeypot"
 					filter="raw"
-					showon="enable_honeypot:0"
+					showon="enable_honeypot:1"
 				/>
 			</fieldset>
 			<fieldset name="microdata" label="Microdati Sito Web">
 				<field 
+					name="enable_md"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="0"
+					label="Attivare i microdati (WIP)?" 
+					description="Attiva solo (per ora) un microdato scherma.org per identificare il macrotipo di sito">
+					<option
+						value="0">No</option>
+					<option
+						value="1">Si</option>
+				 </field>
+				<field 
 					name="md_sitetype"
 					type="list"
 					default="0"
-					label="Tipo di Sito Web" 
+					label="Tipo di Sito Web"
+					showon="enable_md:1"
 					description="Scegli il tipo di sito web tra i disponibili specificati dai microdati schema.org">
 					<option
 						value="WebSite">WebSite</option>
