@@ -71,3 +71,6 @@ script:
 branches:
   except:
     - 2.5.x
+
+notifications:
+  email: false
