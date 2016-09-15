@@ -2,9 +2,12 @@
 qhtml5
 ======
 
-Template Joomla 3 Bootstrap
+Template Joomla 3.x con Bootstrap e jQuery
 
-Latest Release: 2.1
+Latest Release: 2.2.3dev 15/09/2016
+
+15/09/2016
+- Big cleanup
 
 20/04/2015
 - Auto Deploy on server now!
