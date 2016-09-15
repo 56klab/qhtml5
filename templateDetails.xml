@@ -116,12 +116,12 @@
 					name="enable_gtm"
 					type="list"
 					default="0"
-					label="Google Tag Manager" 
+					label="Attivare Google Tag Manager?" 
 					description="Scegliere se abilitare l'inserimento del Google Tag Manager nel template">
 					<option
-						value="0">Abilitato</option>
+						value="0">No</option>
 					<option
-						value="1">Disabilitato</option>
+						value="1">Si</option>
 				 </field>
 				<field 
 					name="script_gtm"
