@@ -15,7 +15,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 	initial-scale=<?php echo $this->params->get('initial-scale')?>,
 	minimum-scale=<?php echo $this->params->get('minimum-scale')?>,
 	maximum-scale=<?php echo $this->params->get('maximum-scale')?>,
-	user-scalable=<?php echo $this->params->get('user-scalable')?> "/>
+	user-scalable=<?php echo $this->params->get('user-scalable')?>"/>
 <?php if($this->params->get('handheldfriendly') == 1) { ?>
 <meta name="HandheldFriendly" content="true" />
 <?php } ?>
