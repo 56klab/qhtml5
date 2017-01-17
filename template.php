@@ -46,7 +46,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 	<section class="container">
 		<div id="center" class="row"> 		
 			<?php if ($this->countModules('left')){ ?>
-				<aside id="left" class="<?php echo $rightspan; ?>">
+				<aside id="left" class="<?php echo $leftspan; ?>">
 					<jdoc:include type="modules" name="left" style="html5"/>
 				</aside>
 			<?php } ?>			
