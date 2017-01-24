@@ -6,17 +6,19 @@
 	<author>Quantility</author>
 	<authorEmail>assistenza@quantility.it</authorEmail>
 	<authorUrl>http://www.quantility.it</authorUrl>
-	<copyright>Copyright (C) 2016 Quantility.it, Inc. All rights reserved.</copyright>
+	<copyright>Copyright (C) 2017 Quantility.it, Inc. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>2.2.3dev build 15/09/2016</version>
+	<version>2.5.ev build 24/01/2017</version>
 	<description>TPL_QHTML5_XML_DESCRIPTION</description>
 	<files>
-		<folder>html</folder>
 		<folder>css</folder>
-		<folder>js</folder>
-		<folder>images</folder>
 		<folder>files</folder>
+		<folder>html</folder>
+		<folder>images</folder>
+		<folder>js</folder>		
 		<folder>language</folder>
+		<filename>index.html</filename>
+		<filename>qhtml5.png</filename>
 		<filename>index.php</filename>
 		<filename>head.php</filename>
 		<filename>template.php</filename>
