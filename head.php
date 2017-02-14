@@ -10,12 +10,7 @@
 defined( '_JEXEC' ) or die( 'Restricted access' );
 ?>
 <?php header('X-UA-Compatible: IE=edge,chrome=1');?>
-<meta name="viewport" content="
-	width=device-width,
-	initial-scale=<?php echo $this->params->get('initial-scale')?>,
-	minimum-scale=<?php echo $this->params->get('minimum-scale')?>,
-	maximum-scale=<?php echo $this->params->get('maximum-scale')?>,
-	user-scalable=<?php echo $this->params->get('user-scalable')?>"/>
+<meta name="viewport" content="width=device-width,initial-scale=<?php echo $this->params->get('initial-scale')?>,minimum-scale=<?php echo $this->params->get('minimum-scale')?>,maximum-scale=<?php echo $this->params->get('maximum-scale')?>,user-scalable=<?php echo $this->params->get('user-scalable')?>"/>
 <?php if($this->params->get('handheldfriendly') == 1) { ?>
 <meta name="HandheldFriendly" content="true" />
 <?php } ?>
@@ -23,6 +18,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 <meta name="apple-mobile-web-app-capable" content="YES" />
 <?php } ?>
 <jdoc:include type="head" />
+<jdoc:include type="modules" name="head" style="raw" />
 <?php if($this->params->get('tpdebug') == 1): ?>
 <style>
 	* {border: 1px solid #f00;}
