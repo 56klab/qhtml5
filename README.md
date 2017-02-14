@@ -1,4 +1,4 @@
-![Deployment status from DeployBot](https://quantility.deploybot.com/badge/77558060029390/84717.svg)](http://deploybot.com)
+![Deployment status from DeployBot](https://quantility.deploybot.com/badge/77558060029390/84717.svg)
 ![Build Status](https://travis-ci.org/Quantility/qhtml5.svg)
 qhtml5
 ======
