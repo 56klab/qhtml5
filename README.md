@@ -1,11 +1,13 @@
 ![Deployment status from DeployBot](https://quantility.deploybot.com/badge/77558060029390/84717.svg)
-![Build Status](https://travis-ci.org/Quantility/qhtml5.svg)
-qhtml5
+Qhtml5
 ======
 
-Template Joomla 3.x con Bootstrap e jQuery
+Basic Joomla 3.x Template
 
-Latest Release: 2.2.3dev 15/09/2016
+Latest Release: 2.5.0dev build 14/02/2017
+
+14/02/2017
+- Lots of improvements!
 
 15/09/2016
 - Big cleanup
