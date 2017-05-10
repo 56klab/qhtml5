@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
-<extension version="3.1" type="template" client="site" method="upgrade">
+<extension version="3.5" type="template" client="site" method="upgrade">
 	<name>qhtml5</name>
 	<creationDate>15/09/2016</creationDate>
 	<author>Quantility</author>
@@ -8,7 +7,7 @@
 	<authorUrl>http://www.quantility.it</authorUrl>
 	<copyright>Copyright (C) 2017 Quantility.it, Inc. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>2.5.ev build 24/01/2017</version>
+	<version>2.6.0dev build 11/05/2017</version>
 	<description>TPL_QHTML5_XML_DESCRIPTION</description>
 	<files>
 		<folder>css</folder>
@@ -113,40 +112,49 @@
 				 </field>
 			</fieldset>
 			
-			<fieldset name="ga" label="Google Tag Manager">
-				<field 
-					name="enable_gtm"
-					type="list"
-					default="0"
-					label="Attivare Google Tag Manager?" 
-					description="Scegliere se abilitare l'inserimento del Google Tag Manager nel template">
-					<option
-						value="0">No</option>
-					<option
-						value="1">Si</option>
-				 </field>
-				<field 
-					name="script_gtm"
+			<fieldset name="customcode" label="Codice personalizzato">
+				<!-- &lt;HEAD&gt; -->
+				<field 	name="after_head_open"
 					type="textarea"
-					label="Script GTM"
-					description="Incolla qua per intero lo script contenitore di Google Tag Manager"
-					filter="raw"
-					showon="enable_gtm:1"
-				/>
+					label="Codice subito dopo <head>"
+					description="Inserisci codice personalizzato da caricare appena aperto il tag HEAD"
+					filter="raw">
+				</field>
+				<field 	name="before_head_close"
+					type="textarea"
+					label="Codice subito prima </head>"
+					description="Inserisci codice personalizzato da caricare prima di chiudere il tag HEAD"
+					filter="raw">
+				</field>
+				<!-- &lt;/HEAD&gt; -->				
+				<!-- &lt;BODY&gt; -->
+				<field 	name="after_body_open"
+					type="textarea"
+					label="Codice subito dopo <body>"
+					description="Inserisci codice personalizzato da caricare appena aperto il tag BODY"
+					filter="raw">
+				</field>
+				<field 	name="before_body_close"
+					type="textarea"
+					label="Codice subito prima </body>"
+					description="Inserisci codice personalizzato da caricare prima di chiudere il tag BODY"
+					filter="raw">
+				</field>
+				<!-- &lt;/BODY&gt; -->
 			</fieldset>
 			
 			<fieldset name="setbootstrap" label="Impostazioni Bootstrap">
 				<field 
-					name="bootstrapcss"
+					name="bootstrap"
 					type="radio"
-					class="btn-group btn-group-yesno"
-					default="1"
-					label="Carica gli stili di Bootstrap" 
-					description="Attiva il caricamento di bootstrap.min.css, bootstrap-responsive.min.css e bootstrap-extended.css. Inoltre valuta la direzione di scrittura della lingua e carica l'eventuale bootstrap-rtl.css">
-					<option
-						value="1">On</option>
-					<option
-						value="0">Off</option>
+					class="btn-group"
+					default="0"
+					label="Carica Bootstrap" 
+					description="Attiva il caricamento di bootstrap">
+					<option value="3">Ultima versione</option>
+					<option value="2">3.x</option>
+					<option value="1">2.x (Joomla!)</option>
+					<option value="0">Off</option>
 				 </field>
 				<field 
 					name="radiobtn"
