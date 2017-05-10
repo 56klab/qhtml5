@@ -1,21 +1,20 @@
 <?php
 /**
  * @package      Qhtml5
- *
+ * @subpackage   Templates.qhtml5
  * @author       Quantility
- * @copyright    Copyright (C) 2016. All rights reserved.
- * @license      http://www.gnu.org/licenses/gpl.html GNU/GPL
+ * @copyright    Copyright (C) 2017. All rights reserved.
+ * @license      GNU General Public License version 2 or later; see LICENSE.txt
  */
 // no direct access
-defined( '_JEXEC' ) or die( 'Restricted access' );
+defined('_JEXEC') or die;
 
 //Inizializzo le variabili per Joomla
 $app             = JFactory::getApplication();
-$doc             = JFactory::getDocument();
 $user            = JFactory::getUser();
-$lang            = JFactory::getLanguage();
-$this->language  = $doc->language;
-$this->direction = $doc->direction;
+
+// Output come HTML5
+$this->setHtml5(true);
 
 // Inizializzo i paramentri dalla configurazione del template
 $params = $app->getTemplate(true)->params;
@@ -39,15 +38,26 @@ $qhtml5_template	= 'templates/' . $this->template . '/css/template.css';
 $qhtml5_magento		= 'templates/' . $this->template . '/css/magento.css';
 $qhtml5_responsive	= 'templates/' . $this->template . '/css/responsive.css';
 
+if ($this->params->get('bootstrap') == '1') {
+	JHtml::_('bootstrap.framework');
+	JHtml::_('bootstrap.loadCss', false, $this->direction);
+} else if ($this->params->get('bootstrap') == '2') {
+	// Bootstrap 3.x
+} else if ($this->params->get('bootstrap') == '3') {
+	// Bootstrap Latest 4.x
+}
+
+// Add template js
+JHtml::_('script', 'template.js', array('version' => 'auto', 'relative' => true));
+// Add html5 shiv
+JHtml::_('script', 'jui/html5.js', array('version' => 'auto', 'relative' => true, 'conditional' => 'lt IE 9'));
+
 // Variabili per microdati LD+Json
 $md_sitetype = $this->params->get('md_sitetype');
 
 if (is_object($menu)) {
     $pageclass = $menu->params->get('pageclass_sfx');
 }
-// Caricamento framework boostrap
-	JHtml::_('bootstrap.framework');
-
 // Caricamento jquery UI core o sortable
 if($this->params->get('jqueryui') == 1):
 	JHtml::_('jquery.ui');
@@ -59,11 +69,6 @@ endif;
 //Caricamento JS funzioni speciali
 if ($this->params->get('radiobtn') == 1) {
 	$doc->addScript('templates/' . $this->template . '/js/radiobtn.js');
-}
-
-//Caricamento Fogli di Style, attenzione all'ordine!
-if ($this->params->get('bootstrapcss') == '1') {
-	JHtml::_('bootstrap.loadCss', true, $this->direction);
 }
 
 // Load specific language related CSS
@@ -90,26 +95,33 @@ if ($this -> countModules('left or right')) {
 }
 
 // array di classi per il body
-$bodyclasses =	'site'
-		. ($pageclass ? $pageclass : '') . ' '
-		. $option . ' view-' . $view . ($layout ? ' layout-' . $layout : ' no-layout')
+$bodyclass =	'site ' . $option . ' view-' . $view
+		. ($layout ? ' layout-' . $layout : ' no-layout')
 		. ($task ? ' task-' . $task : ' no-task')
-		. ($itemid ? ' itemid-' . $itemid : '');
+		. ($itemid ? ' itemid-' . $itemid : '')
+		. ($pageclass ? $pageclass : '')
+		. ($this->direction === 'rtl' ? ' rtl' : '');
 ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
+<html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
-<?php	include 'files/favicon-app.php'; 						//include il file contente favicon e app icons
-	include 'head.php'; 								//include il file contente l'HEAD della pagina html
-	if ($this->params->get('enable_md') == 1) { include 'files/microdata.php'; }	//include i microdati standard
+<?php
+	echo $this->params->get('after_head_open');
+	include 'files/favicon-app.php'; 							//include il file contente favicon e app icons
+	include 'head.php'; 									//include il file contente l'HEAD della pagina html
+	echo $this->params->get('before_head_close');
 ?>
 </head>
-<body class="<?php echo $bodyclasses; ?>">
-<?php	if ($this->params->get('enable_gtm') == 1) { echo $this->params->get('script_gtm'); }	//include Google Tag Manager
-	include 'template.php'; 								//include la parte modificabile dalla sviluppatore del template
-	if ($this->params->get('enable_honeypot') == 1) { include 'files/honeypot.php'; }	//include honeypot
+<body class="<?php echo $bodyclass; ?>">
+<?php
+	echo $this->params->get('after_body_open');
+	include 'template.php';									//include la parte modificabile dalla sviluppatore del template
 ?>
 <jdoc:include type="modules" name="debug" style="none" />
+<?php
+	include 'files/microdata.php';								//include i microdati standard
+	if ($this->params->get('enable_honeypot') == 1) { include 'files/honeypot.php'; }	//include honeypot
+	echo $this->params->get('before_body_close');
+?>
 </body>
-<?php include 'files/debugger.php'; 				//include il file debugger ?>
 </html>
