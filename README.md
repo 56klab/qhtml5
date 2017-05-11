@@ -4,7 +4,13 @@ Qhtml5
 
 Basic Joomla 3.x Template
 
-Latest Release: 2.5.0dev build 14/02/2017
+Latest Stable Release: 2.5.0dev build 14/02/2017
+
+WIP 11/05/2017 - 2.6.0
+- Custom code in top and bottom of HEAD and BODY
+- Bootstrap version selector
+- Speed & SEO Optimization
+- ... and more!
 
 14/02/2017
 - Lots of improvements!
