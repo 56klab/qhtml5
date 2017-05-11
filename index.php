@@ -33,19 +33,34 @@ $menu			= $app->getMenu()->getActive();
 $active			= $app->getMenu()->getItem($itemidMenu);
 $pageclass		= '';
 $contentwidth    	= '';
-$honeypot_file		= $menu->params->get('honeypot_file');
+$stato_errore       = '';
+$honeypot_file		= $params->get('honeypot_file');
 $qhtml5_template	= 'templates/' . $this->template . '/css/template.css';
 $qhtml5_magento		= 'templates/' . $this->template . '/css/magento.css';
 $qhtml5_responsive	= 'templates/' . $this->template . '/css/responsive.css';
 
-if ($this->params->get('bootstrap') == '1') {
+
+if ($params->get('bootstrap') == '1') {
 	JHtml::_('bootstrap.framework');
-	JHtml::_('bootstrap.loadCss', false, $this->direction);
-} else if ($this->params->get('bootstrap') == '2') {
+} else if ($params->get('bootstrap') == '2') {
 	// Bootstrap 3.x
-} else if ($this->params->get('bootstrap') == '3') {
+} else if ($params->get('bootstrap') == '3') {
 	// Bootstrap Latest 4.x
 }
+if ($params->get('bootstrapcss') == '1') {
+    JHtml::_('stylesheet', 'media/jui/css/bootstrap.min.css',false,false);
+    JHtml::_('bootstrap.loadCss', false, $this->direction);
+} else if ($params->get('bootstrapcss') == '2') {
+    JHtml::_('stylesheet', 'media/jui/css/bootstrap.min.css',false,false);
+    JHtml::_('stylesheet', 'media/jui/css/bootstrap-responsive.min.css',false,false);
+    JHtml::_('bootstrap.loadCss', false, $this->direction);
+} else if ($params->get('bootstrapcss') == '3') {
+    JHtml::_('stylesheet', 'media/jui/css/bootstrap.min.css',false,false);
+    JHtml::_('stylesheet', 'media/jui/css/bootstrap-responsive.min.css',false,false);
+    JHtml::_('stylesheet', 'media/jui/css/bootstrap-extended.css',false,false);
+    JHtml::_('bootstrap.loadCss', false, $this->direction);
+}
+
 
 // Add template js
 JHtml::_('script', 'template.js', array('version' => 'auto', 'relative' => true));
@@ -53,16 +68,16 @@ JHtml::_('script', 'template.js', array('version' => 'auto', 'relative' => true)
 JHtml::_('script', 'jui/html5.js', array('version' => 'auto', 'relative' => true, 'conditional' => 'lt IE 9'));
 
 // Variabili per microdati LD+Json
-$md_sitetype = $this->params->get('md_sitetype');
+$md_sitetype = $params->get('md_sitetype');
 
 if (is_object($menu)) {
     $pageclass = $menu->params->get('pageclass_sfx');
 }
 // Caricamento jquery UI core o sortable
-if($this->params->get('jqueryui') == 1):
+if($params->get('jqueryui') == 1):
 	JHtml::_('jquery.ui');
 endif;
-if($this->params->get('jqueryui') == 2):
+if($params->get('jqueryui') == 2):
 	JHtml::_('jquery.ui', array('core', 'sortable'));
 endif;
 
@@ -94,22 +109,22 @@ $bodyclass =	'site ' . $option . ' view-' . $view
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
 <?php
-	echo $this->params->get('after_head_open');
+	echo $params->get('after_head_open');
 	include 'files/favicon-app.php'; 							//include il file contente favicon e app icons
 	include 'head.php'; 									//include il file contente l'HEAD della pagina html
-	echo $this->params->get('before_head_close');
+	echo $params->get('before_head_close');
 ?>
 </head>
 <body class="<?php echo $bodyclass; ?>">
 <?php
-	echo $this->params->get('after_body_open');
+	echo $params->get('after_body_open');
 	include 'template.php';									//include la parte modificabile dalla sviluppatore del template
 ?>
 <jdoc:include type="modules" name="debug" style="none" />
 <?php
 	include 'files/microdata.php';								//include i microdati standard
-	if ($this->params->get('enable_honeypot') == 1) { include 'files/honeypot.php'; }	//include honeypot
-	echo $this->params->get('before_body_close');
+	if ($params->get('enable_honeypot') == 1) { include 'files/honeypot.php'; }	//include honeypot
+	echo $params->get('before_body_close');
 ?>
 </body>
 </html>

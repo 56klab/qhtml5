@@ -39,6 +39,7 @@
 		<position>section-bottom</position>
 		<position>footer</position>
 		<position>copyright</position>
+		<position>error-404</position>
 	</positions>
 		
 	<languages folder="language">
@@ -116,13 +117,13 @@
 				<!-- &lt;HEAD&gt; -->
 				<field 	name="after_head_open"
 					type="textarea"
-					label="Codice subito dopo <head>"
+					label="Codice subito dopo apertura HEAD"
 					description="Inserisci codice personalizzato da caricare appena aperto il tag HEAD"
 					filter="raw">
 				</field>
 				<field 	name="before_head_close"
 					type="textarea"
-					label="Codice subito prima </head>"
+					label="Codice subito prima chiusura HEAD"
 					description="Inserisci codice personalizzato da caricare prima di chiudere il tag HEAD"
 					filter="raw">
 				</field>
@@ -130,44 +131,43 @@
 				<!-- &lt;BODY&gt; -->
 				<field 	name="after_body_open"
 					type="textarea"
-					label="Codice subito dopo <body>"
+					label="Codice subito dopo apertura BODY"
 					description="Inserisci codice personalizzato da caricare appena aperto il tag BODY"
 					filter="raw">
 				</field>
 				<field 	name="before_body_close"
 					type="textarea"
-					label="Codice subito prima </body>"
+					label="Codice subito prima chiusura BODY"
 					description="Inserisci codice personalizzato da caricare prima di chiudere il tag BODY"
 					filter="raw">
 				</field>
 				<!-- &lt;/BODY&gt; -->
 			</fieldset>
 			
-			<fieldset name="setbootstrap" label="Impostazioni Bootstrap">
+			<fieldset name="setbootstrap" label="Bootstrap">
 				<field 
 					name="bootstrap"
 					type="radio"
 					class="btn-group"
 					default="0"
-					label="Carica Bootstrap" 
-					description="Attiva il caricamento di bootstrap">
-					<option value="3">Ultima versione</option>
-					<option value="2">3.x</option>
+					label="Bootstrap JS" 
+					description="Carica Bootstrap JS">
+					<option value="0">No</option>
 					<option value="1">2.x (Joomla!)</option>
-					<option value="0">Off</option>
+					<option value="2">3.x</option>
+					<option value="3">Ultima versione</option>
 				 </field>
-				<field 
-					name="radiobtn"
+				 <field 
+					name="bootstrapcss"
 					type="radio"
-					class="btn-group btn-group-yesno"
-					default="1"
-					label="Mostra bottoni al posto dei radio input" 
-					description="Scegliere se usare i gruppi di bottoni di Bootstrap per i radio input, migliorando notevolmente la User Experience. Attivo di default.">
-					<option
-						value="1">On</option>
-					<option
-						value="0">Off</option>
-					
+					class="btn-group"
+					default="0"
+					label="Bootstrap CSS" 
+					description="Caricamento Bootstrap CSS">
+					<option value="0">No</option>
+					<option value="1">Bootstrap</option>
+					<option value="2">Bootstrap + Responsive</option>
+					<option value="3">Boostrap + Responsive + Extended</option>
 				 </field>
 			</fieldset>
 			<fieldset name="mobile" label="Mobile">
@@ -249,21 +249,6 @@
 					showon="user-scalable:yes"
 				/>
 				 				 
-			</fieldset>
-			
-			<fieldset name="debug" label="Debug">
-				<field 
-					name="tpdebug"
-					type="radio"
-					class="btn-group btn-group-yesno"
-					default="0"
-					label="Attivare il debug visuale del template?" 
-					description="Scegliere se mostrare un particolare debug visuale per tutte le parti html del template">
-					<option
-						value="0">Off</option>
-					<option
-						value="1">On</option>
-				 </field>
 			</fieldset>
 			<fieldset name="honeypot" label="Project Honeypot">
 				<field 
