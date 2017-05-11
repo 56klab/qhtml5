@@ -66,18 +66,6 @@ if($this->params->get('jqueryui') == 2):
 	JHtml::_('jquery.ui', array('core', 'sortable'));
 endif;
 
-//Caricamento JS funzioni speciali
-if ($this->params->get('radiobtn') == 1) {
-	$doc->addScript('templates/' . $this->template . '/js/radiobtn.js');
-}
-
-// Load specific language related CSS
-$doc->addStyleSheet('../media/jui/css/chosen.css');
-
-// Caricamento fogli di stile di QHTML5
-$doc->addStyleSheet('templates/system/css/general.css');
-$doc->addStyleSheet('templates/system/css/system.css');
-
 //span per left e right: dimensioni fisse per migliore user interface span3 | span6 | span3
 if ($this -> countModules('left')) {
 	$leftspan = 'span3';
