@@ -1,0 +1,56 @@
+body {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 14px;
+	line-height: 18px;
+	color: #414A51;
+	font-weight: normal;
+}
+
+h1 {
+	
+}
+
+h2 {
+   font-family: 'Arvo', serif;
+   font-weight: bold;
+   font-size: 61px;
+   color: #E1C940;
+   text-align: center;
+   margin-top: 39px;
+   margin-bottom: 76px;
+}
+
+h3 {
+	
+}
+
+h4 {
+	
+}
+
+.itemFullText a {
+	color: #414A51;
+	display: inline-block;
+	text-decoration: none;
+	border-bottom: 2px solid #e1c940;
+	-webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.itemFullText a:hover {
+	color: #414A51;
+	text-decoration: none;
+	border-bottom: 2px solid #414A51;
+	-webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.prima-lettera {
+	display: inline-block;
+	font-size: 41px;
+	color: #e1c940;
+	font-weight: bold;
+	line-height: 40px;
+	float: left;
+	margin-right: 5px;
+}
