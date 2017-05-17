@@ -1,13 +1,13 @@
 <?php
 /**
  * @package      Qhtml5
- *
+ * @subpackage   Templates.qhtml5
  * @author       Quantility
- * @copyright    Copyright (C) 2015. All rights reserved.
- * @license      http://www.gnu.org/licenses/gpl.html GNU/GPL
+ * @copyright    Copyright (C) 2017. All rights reserved.
+ * @license      GNU General Public License version 2 or later; see LICENSE.txt
  */
 // no direct access
-defined( '_JEXEC' ) or die( 'Restricted access' );
+defined('_JEXEC') or die;
 ?>
 <div id="wrapper">
 	<section class="header">
@@ -61,8 +61,16 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 				<?php endif; ?>
 				<?php if ( $this->params->get('showcomponent') == 0  OR  $menu != $app->getMenu()->getDefault($lang->getTag())) { ?>
 					<section>
-						<jdoc:include type="component" />
-					</section>
+                    <?php if ($stato_errore == '404') { ?>                    
+                        <?php if ($this->countModules('error-404')): ?>
+                        <div id="error-404">
+                            <jdoc:include type="modules" name="error-404" style="html5"/>
+                        </div>
+                        <?php endif; ?>
+                    <?php } else { ?>
+                        <jdoc:include type="component" />
+                    <?php } ?>
+                    </section>
 				<?php }	?>
 				<?php if ($this->countModules('center-bottom')): ?>
 					<section class="row-fluid">
