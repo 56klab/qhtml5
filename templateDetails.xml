@@ -66,25 +66,12 @@
 					type="list"
 					default="1"
 					label="Inclusione jQuery UI" 
-					description="Scegliere se includere nel template jQuery UI e/o JQueryUI con Sortable">
+					description="Scegliere se includere nel template jQuery UI">
 					<option
 						value="0">Non includere jQuery UI</option>
 					<option
 						value="1">jQuery UI</option>
-					<option
-						value="2">jQuery UI + Sortable</option>
 				 </field>
-				 <!-- <field 
-					name="jquerymobile"
-					type="list"
-					default="1"
-					label="Inclusione jQuery Mobile" 
-					description="Scegliere se includere nel template jQuery Mobile">
-					<option
-						value="0">jQuery Mobile 1.4.2</option>
-					<option
-						value="1">Non includere jQuery Mobile</option>
-				 </field> -->
 				 <field 
 					name="jsbottom"
 					type="list"
