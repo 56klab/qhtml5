@@ -106,7 +106,13 @@ $bodyclass =	'site ' . $option . ' view-' . $view
 		. ($this->direction === 'rtl' ? ' rtl' : '');
 ?>
 <!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
+<!--<![endif]-->
 <head>
 <?php
 	echo $params->get('after_head_open');

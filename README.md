@@ -21,3 +21,9 @@ WIP 11/05/2017 - 2.6.0
 20/04/2015
 - Auto Deploy on server now!
 - Development branch!
+
+
+Branch description:
+- develpment: the most updated branch, but unstable!
+- testing: things in this branch are in testing phase
+- master: stable things
