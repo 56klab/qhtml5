@@ -67,12 +67,6 @@ JHtml::_('script', 'template.js', array('version' => 'auto', 'relative' => true)
 // Add html5 shiv
 JHtml::_('script', 'jui/html5.js', array('version' => 'auto', 'relative' => true, 'conditional' => 'lt IE 9'));
 
-// Variabili per microdati LD+Json
-$md_sitetype = $params->get('md_sitetype');
-
-if (is_object($menu)) {
-    $pageclass = $menu->params->get('pageclass_sfx');
-}
 // Caricamento jquery UI core o sortable
 if($params->get('jqueryui') == 1):
 	JHtml::_('jquery.ui');
@@ -128,7 +122,6 @@ $bodyclass =	'site ' . $option . ' view-' . $view
 ?>
 <jdoc:include type="modules" name="debug" style="none" />
 <?php
-	include 'files/microdata.php';								//include i microdati standard
 	if ($params->get('enable_honeypot') == 1) { include 'files/honeypot.php'; }	//include honeypot
 	echo $params->get('before_body_close');
 ?>
