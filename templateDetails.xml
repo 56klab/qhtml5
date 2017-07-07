@@ -271,36 +271,7 @@
 					filter="raw"
 					showon="enable_honeypot:1"
 				/>
-			</fieldset>
-			<fieldset name="microdata" label="Microdati Sito Web">
-				<field 
-					name="enable_md"
-					type="radio"
-					class="btn-group btn-group-yesno"
-					default="0"
-					label="Attivare i microdati (WIP)?" 
-					description="Attiva solo (per ora) un microdato scherma.org per identificare il macrotipo di sito">
-					<option
-						value="0">No</option>
-					<option
-						value="1">Si</option>
-				 </field>
-				<field 
-					name="md_sitetype"
-					type="list"
-					default="0"
-					label="Tipo di Sito Web"
-					showon="enable_md:1"
-					description="Scegli il tipo di sito web tra i disponibili specificati dai microdati schema.org">
-					<option
-						value="WebSite">WebSite</option>
-					<option
-						value="LocalBusiness">LocalBusiness</option>
-					<option
-						value="Store">Store</option>
-						
-				 </field>
-			</fieldset>
+			</fieldset>			
 		</fields>
 	</config>
 	
