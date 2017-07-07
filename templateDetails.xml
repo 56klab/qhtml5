@@ -7,7 +7,7 @@
 	<authorUrl>http://www.quantility.it</authorUrl>
 	<copyright>Copyright (C) 2017 Quantility.it, Inc. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>2.6.0dev build 11/05/2017</version>
+	<version>2.6.1dev build 07/07/2017</version>
 	<description>TPL_QHTML5_XML_DESCRIPTION</description>
 	<files>
 		<folder>css</folder>
@@ -66,25 +66,12 @@
 					type="list"
 					default="1"
 					label="Inclusione jQuery UI" 
-					description="Scegliere se includere nel template jQuery UI e/o JQueryUI con Sortable">
+					description="Scegliere se includere nel template jQuery UI">
 					<option
 						value="0">Non includere jQuery UI</option>
 					<option
 						value="1">jQuery UI</option>
-					<option
-						value="2">jQuery UI + Sortable</option>
 				 </field>
-				 <!-- <field 
-					name="jquerymobile"
-					type="list"
-					default="1"
-					label="Inclusione jQuery Mobile" 
-					description="Scegliere se includere nel template jQuery Mobile">
-					<option
-						value="0">jQuery Mobile 1.4.2</option>
-					<option
-						value="1">Non includere jQuery Mobile</option>
-				 </field> -->
 				 <field 
 					name="jsbottom"
 					type="list"
@@ -271,36 +258,7 @@
 					filter="raw"
 					showon="enable_honeypot:1"
 				/>
-			</fieldset>
-			<fieldset name="microdata" label="Microdati Sito Web">
-				<field 
-					name="enable_md"
-					type="radio"
-					class="btn-group btn-group-yesno"
-					default="0"
-					label="Attivare i microdati (WIP)?" 
-					description="Attiva solo (per ora) un microdato scherma.org per identificare il macrotipo di sito">
-					<option
-						value="0">No</option>
-					<option
-						value="1">Si</option>
-				 </field>
-				<field 
-					name="md_sitetype"
-					type="list"
-					default="0"
-					label="Tipo di Sito Web"
-					showon="enable_md:1"
-					description="Scegli il tipo di sito web tra i disponibili specificati dai microdati schema.org">
-					<option
-						value="WebSite">WebSite</option>
-					<option
-						value="LocalBusiness">LocalBusiness</option>
-					<option
-						value="Store">Store</option>
-						
-				 </field>
-			</fieldset>
+			</fieldset>			
 		</fields>
 	</config>
 	
