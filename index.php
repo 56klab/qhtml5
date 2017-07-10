@@ -33,10 +33,12 @@ $menu			= $app->getMenu()->getActive();
 $active			= $app->getMenu()->getItem($itemidMenu);
 $pageclass		= '';
 $contentwidth    	= '';
-$honeypot_file		= $params->get('honeypot_file');
 $qhtml5_template	= 'templates/' . $this->template . '/css/template.css';
 $qhtml5_magento		= 'templates/' . $this->template . '/css/magento.css';
 $qhtml5_responsive	= 'templates/' . $this->template . '/css/responsive.css';
+if ($params->get('enable_honeypot') == 1) {
+$honeypot_file		= $params->get('honeypot_file');
+}
 
 
 if ($params->get('bootstrap') == '1') {
