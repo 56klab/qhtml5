@@ -2,11 +2,13 @@
 Qhtml5
 ======
 
-Basic Joomla 3.x Template
+Basic **Joomla 3.x** Template
 
-Latest Stable Release: 2.5.0dev build 14/02/2017
+WIP 08/03/2018 - 2.6.3
+- Solved PageClass Bug
+- Package WIP
 
-WIP 11/05/2017 - 2.6.0
+11/05/2017 - 2.6.0
 - Custom code in top and bottom of HEAD and BODY
 - Bootstrap version selector
 - Speed & SEO Optimization
@@ -23,7 +25,29 @@ WIP 11/05/2017 - 2.6.0
 - Development branch!
 
 
-Branch description:
-- develpment: the most updated branch, but unstable!
-- testing: things in this branch are in testing phase
-- master: stable things
+Roadmap
+======
+- [ ] Remove Structured Data options (an external plugin is more simple)
+- [ ] Code Cleaning
+- [ ] More Mobile Settings
+- [ ] More simple Favicon setting
+- [ ] Speed Optimization
+- [ ] Joomla 4.x compatible
+- [ ] Error page management with multilanguage
+- [x] Simple Error page management (by code)
+
+
+Branches structure
+======
+**Stable** Branch
+- [Master](https://github.com/Quantility/qhtml5/tree/master)
+
+**Development** Branch (Pull requests accepted!)
+- [Development](https://github.com/Quantility/qhtml5)
+
+**Testing** branch pre-production (Deploybot to our systems for live testing)
+- [Testing](https://github.com/Quantility/qhtml5/tree/testing)
+
+**Internal** Development (do not use, very unstable!)
+- [Error 404](https://github.com/Quantility/qhtml5/tree/error-404)
+- ...
