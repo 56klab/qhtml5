@@ -33,6 +33,9 @@ $menu			= $app->getMenu()->getActive();
 $active			= $app->getMenu()->getItem($itemidMenu);
 $pageclass		= '';
 $contentwidth    	= '';
+if (is_object($menu)) {
+    $pageclass = $menu->params->get('pageclass_sfx');
+}
 $qhtml5_template	= 'templates/' . $this->template . '/css/template.css';
 $qhtml5_magento		= 'templates/' . $this->template . '/css/magento.css';
 $qhtml5_responsive	= 'templates/' . $this->template . '/css/responsive.css';
