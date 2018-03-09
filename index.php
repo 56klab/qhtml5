@@ -33,10 +33,12 @@ $menu			= $app->getMenu()->getActive();
 $active			= $app->getMenu()->getItem($itemidMenu);
 $pageclass		= '';
 $contentwidth    	= '';
-$honeypot_file		= $params->get('honeypot_file');
 $qhtml5_template	= 'templates/' . $this->template . '/css/template.css';
 $qhtml5_magento		= 'templates/' . $this->template . '/css/magento.css';
 $qhtml5_responsive	= 'templates/' . $this->template . '/css/responsive.css';
+if ($params->get('enable_honeypot') == 1) {
+$honeypot_file		= $params->get('honeypot_file');
+}
 
 
 if ($params->get('bootstrap') == '1') {
@@ -96,25 +98,23 @@ $bodyclass =	'site ' . $option . ' view-' . $view
 		. ($this->direction === 'rtl' ? ' rtl' : '');
 ?>
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html class="ie6" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie9" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
-<html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
-<!--<![endif]-->
+<!--[if lt IE 7 ]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" prefix="og: http://ogp.me/ns#"><![endif]-->
+<!--[if IE 7 ]><html class="no-js lt-ie9 lt-ie8" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" prefix="og: http://ogp.me/ns#"><![endif]-->
+<!--[if IE 8 ]><html class="no-js lt-ie9" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" prefix="og: http://ogp.me/ns#"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" prefix="og: http://ogp.me/ns#"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" prefix="og: http://ogp.me/ns#"><!--<![endif]-->
 <head>
 <?php
 	echo $params->get('after_head_open');
-	include 'files/favicon-app.php'; 							//include il file contente favicon e app icons
-	include 'head.php'; 									//include il file contente l'HEAD della pagina html
+	include 'files/favicon-app.php'; 						//include il file contente favicon e app icons
+	include 'head.php'; 								//include il file contente l'HEAD della pagina html
 	echo $params->get('before_head_close');
 ?>
 </head>
 <body class="<?php echo $bodyclass; ?>">
 <?php
 	echo $params->get('after_body_open');
-	include 'template.php';									//include la parte modificabile dalla sviluppatore del template
+	include 'template.php';								//include la parte modificabile dalla sviluppatore del template
 ?>
 <jdoc:include type="modules" name="debug" style="none" />
 <?php
