@@ -38,3 +38,6 @@ Icon
 
 #Joomla package folder
 package/
+
+#Bump version utility
+build/
