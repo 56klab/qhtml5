@@ -49,7 +49,7 @@ class GenerateCss extends CliApplication
 	public function doExecute()
 	{
 		$templates = array(
-			JPATH_SITE . '/templates/qhtml5/less/template.less' => JPATH_SITE . '/templates/qhtml5/css/template.css'
+			JPATH_SITE . '/templates/qhtml5/less/qhtml5.less' => JPATH_SITE . '/templates/qhtml5/css/template.css'
 		);
 
 		$less = new JLess;
@@ -70,3 +70,4 @@ class GenerateCss extends CliApplication
 }
 
 CliApplication::getInstance('GenerateCss')->execute();
+?>
