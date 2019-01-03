@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <extension version="3.3.0" type="package" method="upgrade">
-	<name>QHtml5 Package</name>
+	<name>Qhtml5 Package</name>
 	<author>Simone Bussoni</author>
 	<creationDate>July 2017</creationDate>
 	<packagename>Qhtml5</packagename>
 	<version>1.0.0</version>
-	<url>https://www.quantility.it/qhtml5</url>
+	<url>https://www.quantility.it</url>
 	<packager>Quantility s.r.l.</packager>
-	<packagerurl>https://www.quantility.it</packagerurl>
-	<description>Pacchetto installazione QHtml5 versione 2.6.1dev</description>
+	<packagerurl>https://qhtml5.quantility.it</packagerurl>
+	<description>Pacchetto installazione Qhtml5 versione 2.6.1dev</description>
 	<scriptfile>script.qhtml5install.php</scriptfile>
 	<files folder="packages">
 		<file type="plugin" id="qhtml5plugin" group="system">plg_sys_qhtml5.zip</file>
@@ -16,6 +16,6 @@
 	</files>
 	<!-- Update servers -->
 	<updateservers>
-		<server type="extension" priority="1" name="Qhtml5 Joomla! Template">https://www.quantility.it/qhtml5/update/pkgqhtml5.xml</server>
+		<server type="extension" priority="1" name="Qhtml5 Joomla! Template">https://qhtml5.quantility.it/update/pkg_update_qhtml5.xml</server>
 	</updateservers>
 </extension>
