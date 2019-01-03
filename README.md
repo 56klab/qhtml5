@@ -39,15 +39,19 @@ Roadmap
 
 Branches structure
 ======
-**Stable** Branch
-- [Master](https://github.com/Quantility/qhtml5/tree/master)
 
 **Development** Branch (Pull requests accepted!)
 - [Development](https://github.com/Quantility/qhtml5)
 
-**Testing** branch pre-production (Deploybot to our systems for live testing)
+**Testing** Branch (Deploybot to our systems for live testing)
 - [Testing](https://github.com/Quantility/qhtml5/tree/testing)
 
-**Internal** Development (do not use, very unstable!)
-- [Error 404](https://github.com/Quantility/qhtml5/tree/error-404)
-- ...
+**Stable** Branch
+- [Master](https://github.com/Quantility/qhtml5/tree/master)
+
+
+
+
+
+
+
