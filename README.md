@@ -1,9 +1,11 @@
 ![Deployment status from DeployBot](https://quantility.deploybot.com/badge/77558060029390/84717.svg)
+
 Qhtml5
 ======
-
 Basic **Joomla 3.x** Template
 
+Changelog
+======
 WIP 08/03/2018 - 2.6.3
 - Solved PageClass Bug
 - Package WIP
@@ -27,13 +29,15 @@ WIP 08/03/2018 - 2.6.3
 
 Roadmap
 ======
-- [ ] Remove Structured Data options (an external plugin is more simple)
+- [ ] Add Bootstrap 4 selection
+- [ ] More "custom code" areas in backend
 - [ ] Code Cleaning
 - [ ] More Mobile Settings
-- [ ] More simple Favicon setting
+- [ ] More simple Favicon setting (using external service like realfavicongenerator.net)
 - [ ] Speed Optimization
 - [ ] Joomla 4.x compatible
 - [ ] Error page management with multilanguage
+- [x] Remove Structured Data options (an external plugin is more simple)
 - [x] Simple Error page management (by code)
 
 
