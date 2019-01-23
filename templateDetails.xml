@@ -108,6 +108,13 @@
 					<option
 						value="1">No</option>
 				 </field>
+				 <field
+				    name="notfound_alias"
+					type="text"
+					label="Url usato per la pagina 404"
+					description="Inserisci la parte di url, ossia un alias che userai nelle voci menu per le pagine 404"
+					filter="raw">
+				</field>
 			</fieldset>
 			
 			<fieldset name="customcode" label="Codice personalizzato">
