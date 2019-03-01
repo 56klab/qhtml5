@@ -9,5 +9,20 @@
 // no direct access
 defined('_JEXEC') or die;
 header("HTTP/1.0 404 Not Found");
-echo file_get_contents(JURI::root().'/pagina-non-trovata');
+
+$langTag 		= JFactory::getLanguage()->getTag();
+$langUrl 		= substr($langTag, 0, -3);
+
+$app			= JFactory::getApplication();
+$params 		= $app->getTemplate(true)->params;
+$notfound_alias	= $params->get('notfound_alias');
+
+$file 			= JURI::root().$langUrl.'/'.$notfound_alias;
+$file_headers 	= get_headers($file);
+
+if( (strpos($file_headers[0], '404') !== false) OR (strpos($file_headers[0], '508') !== false) ){
+    echo "Error 404 Page not Found";
+} else {
+    echo file_get_contents($file);
+}
 ?>

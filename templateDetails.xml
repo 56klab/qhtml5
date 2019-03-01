@@ -12,7 +12,7 @@
 		<![CDATA[
 			<p>Template base responsive HTML5 - versione per Joomla! 3.x</p>
 			<h1>QHtml5 Joomla 3.x Template</h1>
-			<h3>Versione 2.6.3dev - 09/03/2018</h3>
+			<h3>Versione 2.6.5dev - 01/03/2019</h3>
 			<h3>Sviluppato da <strong>Quantility s.r.l</strong> - <a title="Qhtml5 by Quantility" href="https://www.quantility.it/qhtml5">www.quantility.it</a></h3>
 			<p>Riferimento progetto: <strong>Simone Bussoni</strong> - <a mailto:"simone.bussoni@quantility.it">simone.bussoni@quantility.it</a></p>
 			<p>Per assistenza: <a mailto:"assistenza@quantility.it">assistenza@quantility.it</a></p>
@@ -108,6 +108,13 @@
 					<option
 						value="1">No</option>
 				 </field>
+				 <field
+				    name="notfound_alias"
+					type="text"
+					label="Url usato per la pagina 404"
+					description="Inserisci la parte di url, ossia un alias che userai nelle voci menu per le pagine 404"
+					filter="raw">
+				</field>
 			</fieldset>
 			
 			<fieldset name="customcode" label="Codice personalizzato">
