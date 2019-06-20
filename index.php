@@ -101,11 +101,7 @@ $bodyclass =	'site ' . $option . ' view-' . $view
 		. ($this->direction === 'rtl' ? ' rtl' : '');
 ?>
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" prefix="og: http://ogp.me/ns#"><![endif]-->
-<!--[if IE 7 ]><html class="no-js lt-ie9 lt-ie8" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" prefix="og: http://ogp.me/ns#"><![endif]-->
-<!--[if IE 8 ]><html class="no-js lt-ie9" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" prefix="og: http://ogp.me/ns#"><![endif]-->
-<!--[if IE 9 ]><html class="no-js ie9" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" prefix="og: http://ogp.me/ns#"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" prefix="og: http://ogp.me/ns#"><!--<![endif]-->
+<html class="no-js" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" prefix="og: http://ogp.me/ns#">
 <head>
 <?php
 	echo $params->get('after_head_open');
@@ -115,6 +111,9 @@ $bodyclass =	'site ' . $option . ' view-' . $view
 ?>
 </head>
 <body class="<?php echo $bodyclass; ?>">
+<!--[if IE]>
+	<p class="browserupgrade">Stai usando un browser <strong>vecchio e non aggiornato</strong>. Per favore <a href="https://browsehappy.com/">aggiorna il tuo browser</a> per migliorare l'esperienza di navigazione e la sicurezza in ogni sito che visiterai.</p>
+<![endif]-->
 <?php
 	echo $params->get('after_body_open');
 	include 'template.php';								//include la parte modificabile dalla sviluppatore del template
