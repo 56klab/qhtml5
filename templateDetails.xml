@@ -7,12 +7,12 @@
 	<authorUrl>http://www.quantility.it</authorUrl>
 	<copyright>Copyright (C) 2017 Quantility.it, Inc. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>2.6.3dev build 09/03/2018</version>
+	<version>2.7.0dev build 19/07/2019</version>
 	<description>
 		<![CDATA[
 			<p>Template base responsive HTML5 - versione per Joomla! 3.x</p>
 			<h1>QHtml5 Joomla 3.x Template</h1>
-			<h3>Versione 2.6.5dev - 01/03/2019</h3>
+			<h3>Versione 2.7.0dev build 19/07/2019/h3>
 			<h3>Sviluppato da <strong>Quantility s.r.l</strong> - <a title="Qhtml5 by Quantility" href="https://www.quantility.it/qhtml5">www.quantility.it</a></h3>
 			<p>Riferimento progetto: <strong>Simone Bussoni</strong> - <a mailto:"simone.bussoni@quantility.it">simone.bussoni@quantility.it</a></p>
 			<p>Per assistenza: <a mailto:"assistenza@quantility.it">assistenza@quantility.it</a></p>
@@ -108,12 +108,27 @@
 					<option
 						value="1">No</option>
 				 </field>
-				 <field
-				    name="notfound_alias"
-					type="text"
+				 <field	name="notfound_alias_list"
+				    	type="repeatable"
 					label="Url usato per la pagina 404"
 					description="Inserisci la parte di url, ossia un alias che userai nelle voci menu per le pagine 404"
-					filter="raw">
+				    >
+				    <fieldset hidden="true" name="notfound_alias" repeat="true">
+					<field
+					    name="notfound_alias_langtag"
+					    label="Tag di Lingua"
+					    size="30"
+					    type="text"
+					    filter="raw"
+					/>
+					<field
+					    name="notfound_alias"
+					    label="Url usato per la pagina 404"
+					    size="30"
+					    type="text"
+					    filter="raw"
+					/>
+				    </fieldset>
 				</field>
 			</fieldset>
 			
