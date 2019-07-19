@@ -43,7 +43,6 @@ if ($params->get('enable_honeypot') == 1) {
 $honeypot_file		= $params->get('honeypot_file');
 }
 
-
 if ($params->get('bootstrap') == '1') {
 	JHtml::_('bootstrap.framework');
 } else if ($params->get('bootstrap') == '2') {
@@ -65,11 +64,8 @@ if ($params->get('bootstrapcss') == '1') {
     JHtml::_('bootstrap.loadCss', false, $this->direction);
 }
 
-
 // Add template js
 JHtml::_('script', 'template.js', array('version' => 'auto', 'relative' => true));
-// Add html5 shiv
-JHtml::_('script', 'jui/html5.js', array('version' => 'auto', 'relative' => true, 'conditional' => 'lt IE 9'));
 
 // Caricamento jquery UI core o sortable
 if($params->get('jqueryui') == 1):
@@ -101,27 +97,22 @@ $bodyclass =	'site ' . $option . ' view-' . $view
 		. ($this->direction === 'rtl' ? ' rtl' : '');
 ?>
 <!DOCTYPE html>
-<html class="no-js" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" prefix="og: http://ogp.me/ns#">
+<html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" prefix="og: http://ogp.me/ns#">
 <head>
 <?php
 	echo $params->get('after_head_open');
-	include 'files/favicon-app.php'; 						//include il file contente favicon e app icons
 	include 'head.php'; 								//include il file contente l'HEAD della pagina html
+	include 'files/favicon-app.php'; 						//include il file contente favicon e app icons
 	echo $params->get('before_head_close');
 ?>
 </head>
 <body class="<?php echo $bodyclass; ?>">
-<!--[if IE]>
-	<p class="browserupgrade">Stai usando un browser <strong>vecchio e non aggiornato</strong>. Per favore <a href="https://browsehappy.com/">aggiorna il tuo browser</a> per migliorare l'esperienza di navigazione e la sicurezza in ogni sito che visiterai.</p>
-<![endif]-->
 <?php
 	echo $params->get('after_body_open');
 	include 'template.php';								//include la parte modificabile dalla sviluppatore del template
-?>
-<jdoc:include type="modules" name="debug" style="none" />
-<?php
 	if ($params->get('enable_honeypot') == 1) { include 'files/honeypot.php'; }	//include honeypot
 	echo $params->get('before_body_close');
 ?>
+<jdoc:include type="modules" name="debug" style="none" />
 </body>
 </html>
