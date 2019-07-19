@@ -8,7 +8,7 @@
  */
 // no direct access
 defined('_JEXEC') or die;
-header("HTTP/1.0 404 Not Found");
+http_response_code(404);
 
 $app			= JFactory::getApplication();
 $config         = JFactory::getConfig();
@@ -22,15 +22,16 @@ $file 			= JURI::root().$langUrl.'/'.$notfound_alias;
 
 $file_headers 	= get_headers($file);
 
+$arrContextOpt  = array( "ssl" => array( "verify_peer" => false, "verify_peer_name" => false ));
+
 // joomla don't cal this error.php file when is offline, but i think is a bug... so...
 if( $config->get( 'offline' ) == 1 ) {
     echo "Website is in Offline Mode: custome error 404 page works only in Online Mode";
 } else {
-
     if( (strpos($file_headers[0], '404') !== false) OR (strpos($file_headers[0], '508') !== false) OR empty($notfound_alias) == true ){
         echo "Error 404 Page not Found";
     } else {
-        echo file_get_contents($file);
+        echo file_get_contents($file, false, stream_context_create($arrContextOpt));
     }
 }
 ?>
