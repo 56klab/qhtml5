@@ -3,12 +3,13 @@
  * @package      Qhtml5
  * @subpackage   Templates.qhtml5
  * @author       Quantility
- * @copyright    Copyright (C) 2017. All rights reserved.
+ * @copyright    Copyright (C) 2019. All rights reserved.
  * @license      GNU General Public License version 2 or later; see LICENSE.txt
  */
 // no direct access
 defined('_JEXEC') or die;
 ?>
+<!--[if IE]><p class="browserupgrade">Stai usando un browser <strong>vecchio e non aggiornato</strong>. Per favore <a href="https://browsehappy.com/">aggiorna il tuo browser</a> per migliorare l'esperienza di navigazione e la sicurezza in ogni sito che visiterai.</p><![endif]-->
 <section class="header">
 	<header class="container">
 		<div id="header" class="row">
@@ -99,4 +100,4 @@ defined('_JEXEC') or die;
 		</div>
 	</section>
 	<?php endif; ?>
-</div><!-- Fine Bottom -->
+</div>
