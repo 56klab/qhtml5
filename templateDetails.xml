@@ -82,19 +82,6 @@
 					<option value="0">No</option>
 					<option	value="1">Si</option>
 				</field>
-
-				<field 
-					name="jsbottom"
-					type="radio"
-					class="btn-group btn-group-yesno"
-					default="0"
-					label="Inclusione Javascript Custom"
-					description="Scegliere se includere nel template prima della chiusura del body gli scripts Javascript contenuti nel file js/plugins.js">
-					<option
-						value="0">No</option>
-					<option
-						value="1">Si</option>
-				 </field>	
 			</fieldset>
 
 			<fieldset name="template" label="Impostazioni Template">
@@ -157,14 +144,14 @@
 			<fieldset name="customcode" label="Codice Aggiuntivo">
 				<!-- &lt;HEAD&gt; -->
 				<field 	name="after_head_open"
-					type="textarea"
+					type="editor"
 					label="Codice subito dopo apertura HEAD"
 					description="Inserisci codice personalizzato da caricare appena aperto il tag HEAD"
 					filter="raw"
 					editor="codemirror">
 				</field>
 				<field 	name="before_head_close"
-					type="textarea"
+					type="editor"
 					label="Codice subito prima chiusura HEAD"
 					description="Inserisci codice personalizzato da caricare prima di chiudere il tag HEAD"
 					filter="raw"
@@ -173,14 +160,14 @@
 				<!-- &lt;/HEAD&gt; -->				
 				<!-- &lt;BODY&gt; -->
 				<field 	name="after_body_open"
-					type="textarea"
+					type="editor"
 					label="Codice subito dopo apertura BODY "
 					description="Inserisci codice personalizzato da caricare appena aperto il tag BODY"
 					filter="raw"
 					editor="codemirror">
 				</field>
 				<field 	name="before_body_close"
-					type="textarea"
+					type="editor"
 					label="Codice subito prima chiusura BODY"
 					description="Inserisci codice personalizzato da caricare prima di chiudere il tag BODY"
 					filter="raw"
@@ -188,7 +175,7 @@
 				</field>
 				<!-- &lt;/BODY&gt; -->
 				<field 	name="favicon_code"
-					type="textarea"
+					type="editor"
 					label="Codice RealFaviconGenerator"
 					description="Inserisci codice personalizzato per le Favicon generato da RealFaviconGenerator. GUIDA http://realfavicongenerator.net/ Inserire l'icona nel sito http://realfavicongenerator.net/, impostare le opzioni, forzare la URL in -Favicon Generator Options- con -I cannot or I do not want to place favicon files at the root of my web site. Instead I will place them here- e incollare URL scaricare il pacchetto e caricarlo in /templates/qhtml5/images/favicon"
 					filter="raw"
@@ -214,8 +201,7 @@
 					class="btn-group"
 					default="0"
 					label="Bootstrap CSS" 
-					description="Caricamento Bootstrap CSS"
-					showon="bootstrap:1"
+					description="Caricamento Bootstrap CSS"					
 					>
 					<option value="0">No</option>
 					<option value="1">Bootstrap</option>
