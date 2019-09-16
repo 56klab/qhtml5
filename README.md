@@ -50,7 +50,7 @@ Branches structure
 **Testing** Branch (Deploybot to our systems for live testing)
 - [Testing](https://github.com/Quantility/qhtml5/tree/testing)
 
-**Stable** Branch
+**Stable** Branch (When a test is successful!)
 - [Master](https://github.com/Quantility/qhtml5/tree/master)
 
 
