@@ -5,14 +5,14 @@
 	<author>Quantility</author>
 	<authorEmail>assistenza@quantility.it</authorEmail>
 	<authorUrl>http://www.quantility.it</authorUrl>
-	<copyright>Copyright (C) 2017 Quantility.it, Inc. All rights reserved.</copyright>
+	<copyright>Copyright (C) 2019 Quantility.it, Inc. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>2.7.0dev build 19/07/2019</version>
+	<version>2.8.0dev build 17/09/2019</version>
 	<description>
 		<![CDATA[
 			<p>Template base responsive HTML5 - versione per Joomla! 3.x</p>
 			<h1>QHtml5 Joomla 3.x Template</h1>
-			<h3>Versione 2.7.0dev build 19/07/2019/h3>
+			<h3>Versione 2.8.0dev build 17/09/2019/h3>
 			<h3>Sviluppato da <strong>Quantility s.r.l</strong> - <a title="Qhtml5 by Quantility" href="https://www.quantility.it/qhtml5">www.quantility.it</a></h3>
 			<p>Riferimento progetto: <strong>Simone Bussoni</strong> - <a mailto:"simone.bussoni@quantility.it">simone.bussoni@quantility.it</a></p>
 			<p>Per assistenza: <a mailto:"assistenza@quantility.it">assistenza@quantility.it</a></p>
@@ -60,42 +60,66 @@
 	<config>
 		
 		<fields name="params">
-			
-			<fieldset name="Stile" label="Stile">
-				<field name="msapplication-TileColor" type="color" default="#eee"
-					label="Tile Color"
-					description="MS Application Tile Color" />
-				<field name="theme-color" type="color" default="#eee"
-					label="Theme Color"
-					description="Theme Color" />
-			</fieldset>
-			
+					
 			<fieldset name="jquery" label="Javascript">
-				 <field 
+				<field 
+					name="jquery"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="0"
+					label="Includere jQuery (Joomla! Default)" 
+					description="Scegli se visualizzare gli articoli (Joomla o K2) o i componenti nella Home Page">
+					<option value="0">No</option>
+					<option	value="1">Si</option>
+				</field>
+				<field 
 					name="jqueryui"
-					type="list"
-					default="1"
-					label="Inclusione jQuery UI" 
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="0"
+					label="Includere jQuery UI (Joomla! Default)" 
 					description="Scegliere se includere nel template jQuery UI">
-					<option
-						value="0">Non includere jQuery UI</option>
-					<option
-						value="1">jQuery UI</option>
-				 </field>
-				 <field 
+					<option value="0">No</option>
+					<option	value="1">Si</option>
+				</field>
+
+				<field 
 					name="jsbottom"
-					type="list"
-					default="1"
-					label="Inclusione Javascript fine pagina"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="0"
+					label="Inclusione Javascript Custom"
 					description="Scegliere se includere nel template prima della chiusura del body gli scripts Javascript contenuti nel file js/plugins.js">
 					<option
-						value="0">Includi plugins.js</option>
+						value="0">No</option>
 					<option
-						value="1">Non includere</option>
+						value="1">Si</option>
 				 </field>	
 			</fieldset>
 
 			<fieldset name="template" label="Impostazioni Template">
+				<field
+					name="browserupgrade"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					label="Avviso Browser Upgrade"
+					description="Attiva l'avviso di compatibilità del Browser"
+					default="0"
+					>
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field
+					name="mode"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					label="Modalità Sviluppo"
+					description="Developer: usa il SCSS | Production: usa il CSS compilato"
+					default="0"
+					>
+					<option value="0">Production</option>
+					<option value="1">Developer</option>
+				</field>
 				<field 
 					name="showcomponent"
 					type="radio"
@@ -103,64 +127,73 @@
 					default="0"
 					label="Visualizzare com_component in Home?" 
 					description="Scegli se visualizzare gli articoli (Joomla o K2) o i componenti nella Home Page">
-					<option
-						value="0">Si</option>
-					<option
-						value="1">No</option>
-				 </field>
-				 <field	name="notfound_alias_list"
+					<option value="0">Si</option>
+					<option	value="1">No</option>
+				</field>
+				<field	name="notfound_alias_list"
 				    	type="repeatable"
-					label="Url usato per la pagina 404"
-					description="Inserisci la parte di url, ossia un alias che userai nelle voci menu per le pagine 404"
-				    >
+						label="Url usato per la pagina 404"
+						description="Inserisci la parte di url, ossia un alias che userai nelle voci menu per le pagine 404"
+						>
 				    <fieldset hidden="true" name="notfound_alias" repeat="true">
-					<field
-					    name="notfound_alias_langtag"
-					    label="Tag di Lingua"
-					    size="30"
-					    type="text"
-					    filter="raw"
-					/>
-					<field
-					    name="notfound_alias"
-					    label="Url usato per la pagina 404"
-					    size="30"
-					    type="text"
-					    filter="raw"
-					/>
+						<field
+							name="notfound_alias_langtag"
+							label="Tag di Lingua"
+							size="30"
+							type="text"
+							filter="raw"
+						/>
+						<field
+							name="notfound_alias"
+							label="Url usato per la pagina 404"
+							size="30"
+							type="text"
+							filter="raw"
+						/>
 				    </fieldset>
 				</field>
 			</fieldset>
 			
-			<fieldset name="customcode" label="Codice personalizzato">
+			<fieldset name="customcode" label="Codice Aggiuntivo">
 				<!-- &lt;HEAD&gt; -->
 				<field 	name="after_head_open"
 					type="textarea"
 					label="Codice subito dopo apertura HEAD"
 					description="Inserisci codice personalizzato da caricare appena aperto il tag HEAD"
-					filter="raw">
+					filter="raw"
+					editor="codemirror">
 				</field>
 				<field 	name="before_head_close"
 					type="textarea"
 					label="Codice subito prima chiusura HEAD"
 					description="Inserisci codice personalizzato da caricare prima di chiudere il tag HEAD"
-					filter="raw">
+					filter="raw"
+					editor="codemirror">
 				</field>
 				<!-- &lt;/HEAD&gt; -->				
 				<!-- &lt;BODY&gt; -->
 				<field 	name="after_body_open"
 					type="textarea"
-					label="Codice subito dopo apertura BODY"
+					label="Codice subito dopo apertura BODY "
 					description="Inserisci codice personalizzato da caricare appena aperto il tag BODY"
-					filter="raw">
+					filter="raw"
+					editor="codemirror">
 				</field>
 				<field 	name="before_body_close"
 					type="textarea"
 					label="Codice subito prima chiusura BODY"
 					description="Inserisci codice personalizzato da caricare prima di chiudere il tag BODY"
-					filter="raw">
+					filter="raw"
+					editor="codemirror">
 				</field>
 				<!-- &lt;/BODY&gt; -->
+				<field 	name="favicon_code"
+					type="textarea"
+					label="Codice RealFaviconGenerator"
+					description="Inserisci codice personalizzato per le Favicon generato da RealFaviconGenerator. GUIDA http://realfavicongenerator.net/ Inserire l'icona nel sito http://realfavicongenerator.net/, impostare le opzioni, forzare la URL in -Favicon Generator Options- con -I cannot or I do not want to place favicon files at the root of my web site. Instead I will place them here- e incollare URL scaricare il pacchetto e caricarlo in /templates/qhtml5/images/favicon"
+					filter="raw"
+					editor="codemirror">
+				</field>
 			</fieldset>
 			
 			<fieldset name="setbootstrap" label="Bootstrap">
@@ -172,126 +205,26 @@
 					label="Bootstrap JS" 
 					description="Carica Bootstrap JS">
 					<option value="0">No</option>
-					<option value="1">2.x (Joomla!)</option>
-					<option value="2">3.x</option>
-					<option value="3">Ultima versione</option>
-				 </field>
-				 <field 
+					<option value="1">2.x (Joomla! 3.x Default)</option>
+					<option value="2">Custom Bootstrap</option>
+				</field>
+				<field 
 					name="bootstrapcss"
 					type="radio"
 					class="btn-group"
 					default="0"
 					label="Bootstrap CSS" 
-					description="Caricamento Bootstrap CSS">
+					description="Caricamento Bootstrap CSS"
+					showon="bootstrap:1"
+					>
 					<option value="0">No</option>
 					<option value="1">Bootstrap</option>
 					<option value="2">Bootstrap + Responsive</option>
-					<option value="3">Boostrap + Responsive + Extended</option>
+					<option value="3">Bootstrap + Responsive + Ext.</option>
 				 </field>
 			</fieldset>
 			<fieldset name="mobile" label="Mobile">
-				<field 
-					name="handheldfriendly"
-					type="radio"
-					class="btn-group btn-group-yesno"
-					default="1"
-					label="HandHeldFriendly" 
-					description="Attiva il metatag HandHeldFrindly per migliorare il riconoscimento su mobile del sito">
-					<option
-						value="1">Si</option>
-					<option
-						value="0">No</option>
-					
-				 </field>
-				 <field 
-					name="apple-app-fullscreen"
-					type="radio"
-					class="btn-group btn-group-yesno"
-					default="0"
-					label="Web App Fullscreen" 
-					description="Attiva il metatag specifico Apple per mostrare il sito/webapp a schermo intero">
-					<option
-						value="1">Si</option>
-					<option
-						value="0">No</option>
-					
-				 </field>
-				 <field type="spacer" name="mobilespacer" label="Avanzate" />
-				 <field 
-					name="user-scalable"
-					type="radio" class="btn-group btn-group-yesno"
-					default="no"
-					label="user-scalable" 
-					description="user-scalable">
-					<option value="yes">Si</option>
-					<option	value="no">No</option>					
-				 </field>
-				 
-				 <field 
-					name="user-scalable"
-					type="radio" class="btn-group btn-group-yesno"
-					default="no"
-					label="user-scalable" 
-					description="user-scalable">
-					<option value="yes">Si</option>
-					<option	value="no">No</option>					
-				 </field>
-				 
-				 <field 
-					name="initial-scale"
-					type="number"
-					default="1"
-					label="initial-scale" 
-					description="initial-scale"
-					filter="raw"
-					min="1" max="10" step="0.5"
-					showon="user-scalable:yes"
-				/>
-				<field 
-					name="minimum-scale"
-					type="number"
-					default="1"
-					label="minimum-scale" 
-					description="minimum-scale"
-					filter="raw"
-					min="1" max="10" step="0.5"
-					showon="user-scalable:yes"
-				/>
-				<field 
-					name="maximum-scale"
-					type="number"
-					default="1"
-					label="maximum-scale" 
-					description="maximum-scale"
-					filter="raw"
-					min="1" max="10" step="0.5"
-					showon="user-scalable:yes"
-				/>
-				 				 
-			</fieldset>
-			<fieldset name="honeypot" label="Project Honeypot">
-				<field 
-					name="enable_honeypot"
-					type="radio"
-					class="btn-group btn-group-yesno"
-					default="0"
-					label="Attivare l'anti spam Honeypot?" 
-					description="Attiva un particolare sistema antispam che raccoglie i click di bot e li inserisce nel progetto Honeypot">
-					<option
-						value="0">No</option>
-					<option
-						value="1">Si</option>
-				 </field>
-				<field 
-					name="honeypot_file"
-					type="textarea"
-					label="File (solo file con estensione.php)" 
-					description="Scrivi il nome del file (posizionato in public_html) per il progetto Honeypot"
-					filter="raw"
-					showon="enable_honeypot:1"
-				/>
-			</fieldset>			
+			</fieldset>		
 		</fields>
-	</config>
-	
+	</config>	
 </extension>
