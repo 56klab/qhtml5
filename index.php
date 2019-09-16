@@ -133,7 +133,7 @@ $bodyclass =	'site ' . $option . ' view-' . $view
 
 	<!-- Scripts -->
 
-	<?php if ($this->countModules('head')): ?><jdoc:include type="modules" name="head" style="raw" /><?php } ?>
+	<?php if ($this->countModules('head')): ?><jdoc:include type="modules" name="head" style="raw" /><?php endif; ?>
 	<?php echo $params->get('before_head_close');?>
 </head>
 <body class="<?php echo $bodyclass; ?>">
