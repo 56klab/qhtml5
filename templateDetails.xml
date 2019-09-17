@@ -208,6 +208,17 @@
 					<option value="2">Bootstrap + Responsive</option>
 					<option value="3">Bootstrap + Responsive + Ext.</option>
 				 </field>
+				 <field 
+					name="bootstrapcss4grid"
+					type="radio"
+					class="btn-group"
+					default="0"
+					label="Bootstrap 4 CSS Grid" 
+					description="Caricamento Bootstrap 4 CSS Grid"					
+					>
+					<option value="0">No</option>
+					<option value="1">Bootstrap 4 CSS Grid</option>
+				 </field>
 			</fieldset>
 			<fieldset name="mobile" label="Mobile">
 			</fieldset>		
