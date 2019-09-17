@@ -47,8 +47,8 @@ $contentwidth   = '';
 if (is_object($menu)) {
     $pageclass = $menu->params->get('pageclass_sfx');
 }
-$qhtml5_bs4_grid_min	= 'templates/' . $this->template . 'css/boostrap4/bootstrap-grid.min.css';
-$qhtml5_bs4_grid		= 'templates/' . $this->template . 'css/boostrap4/bootstrap-grid.css';
+$qhtml5_bs4_grid_min	= 'templates/' . $this->template . '/css/bootstrap4/bootstrap-grid.min.css';
+$qhtml5_bs4_grid		= 'templates/' . $this->template . '/css/bootstrap4/bootstrap-grid.css';
 $qhtml5_template		= 'templates/' . $this->template . '/css/template.css';
 $qhtml5_magento			= 'templates/' . $this->template . '/css/magento.css';
 $qhtml5_responsive		= 'templates/' . $this->template . '/css/responsive.css';
@@ -132,10 +132,8 @@ if ($this -> countModules('left or right')) {
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
-<!-- Meta Start -->
-	<?php if ($params->get('after_head_open') echo "<!-- after_head_open start -->"."\r\n".$params->get('after_head_open')."\r\n"."<!-- after_head_open end -->"."\r\n"; ?>	
-	<?php echo $params->get('favicon_code')."\r\n";?>
-<!-- Meta End -->
+    <?php if ($params->get('after_head_open')) echo "<!-- after_head_open start -->"."\r\n".$params->get('after_head_open')."\r\n"."<!-- after_head_open end -->"."\r\n"; ?>
+    <?php if ($params->get('favicon_code')) echo "<!-- favicon_code start -->"."\r\n".$params->get('favicon_code')."\r\n"."<!-- favicon_code end -->"."\r\n";?>
 <!-- Head Start -->
 	<jdoc:include type="head" />
 <!-- Head End -->
@@ -144,18 +142,18 @@ if ($this -> countModules('left or right')) {
 <!-- Extra Scripts Start -->
 <!-- Extra Scripts End -->
 	<?php if ($this->countModules('head')): ?><jdoc:include type="modules" name="head" style="raw" /><?php endif; ?>
-	<?php if ($params->get('before_head_close') echo "<!-- before_head_close start -->"."\r\n".$params->get('before_head_close')."\r\n"."<!-- before_head_close end -->"."\r\n"; ?>
+	<?php if ($params->get('before_head_close')) echo "<!-- before_head_close start -->"."\r\n".$params->get('before_head_close')."\r\n"."<!-- before_head_close end -->"."\r\n"; ?>
 </head>
 <body class="<?php echo $bodyclass; ?>">
-	<?php if ($params->get('after_body_open') echo "<!-- after_body_open start -->"."\r\n".$params->get('after_body_open')."\r\n"."<!-- after_body_open end -->"."\r\n"; ?>
+	<?php if ($params->get('after_body_open')) echo "<!-- after_body_open start -->"."\r\n".$params->get('after_body_open')."\r\n"."<!-- after_body_open end -->"."\r\n"; ?>
 	<?php if ($params->get('browserupgrade') == '1') : ?>
 		<?php include 'includes/browserupgrade.php'; ?>
     <?php endif; ?>
 	<?php include 'template.php'; ?>
-	<?php if ($params->get('before_body_close') echo "<!-- before_body_close start -->"."\r\n".$params->get('before_body_close')."\r\n"."<!-- before_body_close end -->"."\r\n"; ?>
+	<?php if ($params->get('before_body_close')) echo "<!-- before_body_close start -->"."\r\n".$params->get('before_body_close')."\r\n"."<!-- before_body_close end -->"."\r\n"; ?>
 	<jdoc:include type="modules" name="debug" style="none" />
-	<?php if(file_exists($qhtml5_customjs)){ ?>
-		<script src="js/custom.js"></script>
+	<?php if(file_exists($qhtml5_customjs)): ?>
+		<script src="<?php echo $qhtml5_customjs; ?>"></script>
 	<?php endif; ?>
 </body>
 </html>
