@@ -6,6 +6,15 @@ Basic **Joomla 3.x** Template
 
 Changelog
 ======
+
+17/09/2019 - 2.8.0
+- Removed IE Support
+- Removed unused features
+- Optimized loading of core CSS and JS
+- Improved JQuery choices
+- Improved Favicon with RealFaviconGenerator
+- Added "browser upgrade" selector
+
 WIP 08/03/2018 - 2.6.3
 - Solved PageClass Bug
 - Package WIP
@@ -29,11 +38,12 @@ WIP 08/03/2018 - 2.6.3
 
 Roadmap
 ======
+- [ ] Optimize Language Files
 - [ ] Add Bootstrap 4 selection
-- [ ] More "custom code" areas in backend
+- [x] More "custom code" areas in backend
 - [ ] Code Cleaning
 - [ ] More Mobile Settings
-- [ ] More simple Favicon setting (using external service like realfavicongenerator.net)
+- [x] More simple Favicon setting (using external service like realfavicongenerator.net)
 - [ ] Speed Optimization
 - [ ] Joomla 4.x compatible
 - [ ] Error page management with multilanguage
